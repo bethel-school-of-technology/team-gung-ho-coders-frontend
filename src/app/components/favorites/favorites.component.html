@@ -1,0 +1,16 @@
+<h1>Favorites</h1>
+
+<div class="grid">
+    <div *ngFor="let movie of favorites" class="favoritemovie-card">
+      <img [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
+      <h3>{{ movie.movieTitle}}</h3>
+      <p>Parental Rating: {{ movie.parentalRating }}</p>
+      <p>Year Filmed: {{ movie.yearFilmed }}</p>
+      <p>Genre: {{ movie.genre }}</p>
+      <p>Run Time: {{ movie.runTime }}</p>
+    </div>
+  </div>
+  
+
+
+

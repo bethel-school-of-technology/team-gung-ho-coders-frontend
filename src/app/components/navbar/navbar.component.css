@@ -1,0 +1,23 @@
+nav{
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+    background-color: silver;
+    padding: 15px;
+    margin: 15px;
+
+}
+
+.nav-link{
+    color: black;
+    margin-right: 60px;
+    align-items: center;
+    justify-content: center;
+}
+
+.h1{
+    margin: 0;
+    align-items: left;
+}
+
