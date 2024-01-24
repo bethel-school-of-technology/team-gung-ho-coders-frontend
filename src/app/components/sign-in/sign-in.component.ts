@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-sign-in',
@@ -6,5 +7,17 @@ import { Component } from '@angular/core';
   styleUrl: './sign-in.component.css'
 })
 export class SignInComponent {
+  signInForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.signInForm = this.fb.group({
+      email: [''],
+      password: ['']
+    })
+  }
+
+  onSubmit() {
+    console.log(this.signInForm.value);
+  }
 
 }
