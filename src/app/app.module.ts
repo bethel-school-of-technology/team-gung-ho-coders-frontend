@@ -8,7 +8,7 @@ import { FavoritesComponent } from './components/favorites/favorites.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { HomeComponent } from './components/home/home.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
-import { MoviePageComponent } from './movie-page/movie-page.component';
+import { MoviePageComponent } from './components/movie-page/movie-page.component';
 
 @NgModule({
   declarations: [
