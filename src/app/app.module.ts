@@ -6,21 +6,21 @@ import { AppComponent } from './app.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { FavoritesComponent } from './components/favorites/favorites.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignInComponent,
-    FavoritesComponent,
-    NavbarComponent
+    SignupComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [
-    provideClientHydration()
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

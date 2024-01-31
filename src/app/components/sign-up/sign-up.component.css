@@ -1,0 +1,17 @@
+form {
+    font-family:sans-serif;
+    text-align: center;
+}
+button {
+    background-color: red;
+    color:white;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    border:1px solid red;
+    width: 200px;
+}
+input {
+    font-size:14pt;
+    width: 190px;
+}
