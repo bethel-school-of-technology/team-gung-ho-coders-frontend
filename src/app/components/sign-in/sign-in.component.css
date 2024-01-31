@@ -1,0 +1,83 @@
+body{
+  margin: 0;
+  padding: 0;
+  background: url(https://sheownsit.com/wp-content/uploads/2016/10/Elements-for-a-great-video.png) no-repeat center top;
+  background-size: cover;
+  font-family: sans-serif;
+  height: 100vh;
+}
+
+.SignIn-box{
+  width: 330px;
+  height: 460px;
+  border-radius: 20px;
+  background: #000;
+  color: #b5abab;
+  top: 60%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  box-sizing: border-box;
+  padding: 60px 30px;
+}
+
+.SignIn-box .icon{
+  width: 80px;
+  height: 70px;
+  border: 40%;
+  position: absolute;
+  top: 5px;
+  left: calc(50% - 50px);
+}
+
+.SignIn-box h1{
+  margin: 5px;
+  padding: 10px 0 20px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.SignIn-box label{
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+  display: block;
+}
+
+.SignIn-box input{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.SignIn-box input[type="text"], .SignIn-box input[type="password"]{
+  border: none;
+  border-bottom: 1px solid #f0eded;
+  background: transparent;
+  outline: none;
+  height: 40px;
+  color: #f0eded;
+  font-size: 17px;
+}
+
+.SignIn-box input[type="submit"]{
+  border: none;
+  outline: none;
+  height: 45px;
+  background: #3dc272;  /*fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #4e8ecd, #3dc272);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #4e8ecd, #3dc272); /* Edge, Chrome 26+, Safari 7+ */
+  color: #f0eded;
+  font-size: 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.SignIn-box a{
+  text-decoration: none;
+  line-height: 35px;
+  color: rgb(132, 129, 129);
+}
+
+.SignIn-box a.hover{
+  color:#f0eded
+}
