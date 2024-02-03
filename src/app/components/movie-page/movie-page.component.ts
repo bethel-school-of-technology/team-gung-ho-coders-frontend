@@ -9,7 +9,7 @@ import { Movies } from '../../models/movies';
 })
 export class MoviePageComponent {
 
-  movieTitle: string = '';
+  movieTitle: string = 'hobbit';
   movies: Movies[] = [];
 
   constructor(private moviesService: MoviesService) {}

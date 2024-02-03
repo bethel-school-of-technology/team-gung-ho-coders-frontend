@@ -8,16 +8,23 @@ import { Movies } from '../models/movies';
 })
 export class MoviesService {
   constructor(private http: HttpClient) {}
-
   getAllMovies(title: string): Observable<Movies[]> {
     return this.http.get<Movies[]>(
-      `https://moviesdatabase.p.rapidapi.com/titles/search/title/${title}`
+      `https://moviesdatabase.p.rapidapi.com/titles/search/title/${title}?exact=false`,
+      { headers: {
+        'X-RapidAPI-Key': '21e64905ecmsh0a63d58546d656cp18033bjsn0175b0cfc09f',
+        'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+      }}
     );
   }
 
   getMoviesByID(id: string): Observable<Movies> {
     return this.http.get<Movies>(
-      `https://moviesdatabase.p.rapidapi.com/titles/${id}`
+      `https://moviesdatabase.p.rapidapi.com/titles/${id}`,
+      { headers: {
+        'X-RapidAPI-Key': '21e64905ecmsh0a63d58546d656cp18033bjsn0175b0cfc09f',
+        'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+      }}
     );
   }
 
@@ -31,15 +38,10 @@ export class MoviesService {
   
     return this.http.get<Movies[]>(
       'https://moviesdatabase.p.rapidapi.com/titles/random',
-      options
+      { ...options, headers: {   
+        'X-RapidAPI-Key': '21e64905ecmsh0a63d58546d656cp18033bjsn0175b0cfc09f',
+        'X-RapidAPI-Host': 'moviesdatabase.p.rapidapi.com'
+      }}
     );
   }
-
-  deleteMoviesByID(id: string): Observable<Movies> {
-    return this.http.delete<Movies>(
-      `https://moviesdatabase.p.rapidapi.com/titles/${id}`
-    );
-  }
-
-  
 }
