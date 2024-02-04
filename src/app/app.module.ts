@@ -23,6 +23,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     MoviePageComponent
   ],
   imports: [
+
     FormsModule,
     HttpClientModule,
     BrowserModule,
