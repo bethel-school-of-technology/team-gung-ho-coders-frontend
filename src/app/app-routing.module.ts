@@ -8,10 +8,11 @@ import { MoviePageComponent } from './components/movie-page/movie-page.component
 import { AboutUsComponent } from './components/about-us/about-us.component';
 
 const routes: Routes = [
+  {path: '', component: HomeComponent},
   { path: 'home', component: HomeComponent },
   {path: 'movies', component: MoviePageComponent},
   { path: 'favorites', component: FavoritesComponent },
-  { path: '', component: SignInComponent },
+  { path: 'signin', component: SignInComponent },
   { path: 'about-us', component: AboutUsComponent },
   { path: "signup", component: SignUpComponent },
 ];
