@@ -1,17 +1,44 @@
+<input type="text" [(ngModel)]="searchTitle" placeholder="Enter title to search">
+<button (click)="searchMovies()">Search</button>
+
 <h1>Favorites</h1>
 
 <div class="grid">
-    <div *ngFor="let movie of favorites" class="favoritemovie-card">
+    <div *ngFor="let movie of favorites; let i = index" class="favoritemovie-card">
       <img [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
       <h3>{{ movie.movieTitle}}</h3>
+      <!-- <p>Parental Rating: {{ movie.parentalRating }}</p>
+      <p>Year Filmed: {{ movie.yearFilmed }}</p>
+      <p>Genre: {{ movie.genre }}</p>
+      <p>Run Time: {{ movie.runTime }}</p> -->
+      <button (click)="toggleFavorite(movie)" type="button">{{ isInFavorites(movie) ? 'Remove' : 'Add' }}</button>
+    </div>
+  </div>
+
+  <h2>Available Movies</h2>
+<div class="grid">
+  <div *ngIf="externalMovies && externalMovies.length > 0; else noMoviesFound">
+    <div *ngFor="let movie of externalMovies" class="external-movie-card">
+      <img [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
+      <h3>{{ movie.movieTitle }}</h3>
       <p>Parental Rating: {{ movie.parentalRating }}</p>
       <p>Year Filmed: {{ movie.yearFilmed }}</p>
       <p>Genre: {{ movie.genre }}</p>
       <p>Run Time: {{ movie.runTime }}</p>
-      <button id="btn" type="submit">Remove</button>
+      <button (click)="toggleFavorite(movie)" type="button">{{ isInFavorites(movie) ? 'Remove' : 'Add' }}</button>
     </div>
   </div>
+  <ng-template #noMoviesFound>
+    <p>No movies found.</p>
+  </ng-template>
+</div>
+
+<!-- <div class="external">
+  <div *ngFor="let movie of externalMovies" class="external-movie-card">
+    <img [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
+    <h3>{{ movie.movieTitle }}</h3>
+    <button (click)="toggleFavorite(movie)" type="button">{{ isInFavorites(movie) ? 'Remove' : 'Add' }}</button>
+  </div> -->
+
   
-
-
 
