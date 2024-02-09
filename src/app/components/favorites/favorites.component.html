@@ -17,12 +17,12 @@
 
   <h2>Available Movies</h2>
 <div class="grid">
-  <div *ngIf="externalMovies && externalMovies.length > 0; else noMoviesFound">
-    <div *ngFor="let movie of externalMovies" class="external-movie-card">
-      <img [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
-      <h3>{{ movie.movieTitle }}</h3>
+  <div *ngIf="externalMovies && externalMovies.results && externalMovies.results.length > 0; else noMoviesFound">
+    <div *ngFor="let movie of externalMovies.results" class="external-movie-card">
+      <img *ngIf="movie.primaryImage" [src]="movie.primaryImage.url" alt="{{ movie.titleText.text }}" width="200">
+      <h3>{{ movie.titleText.text }}</h3>
       <p>Parental Rating: {{ movie.parentalRating }}</p>
-      <p>Year Filmed: {{ movie.yearFilmed }}</p>
+      <p>Year Filmed: {{ movie.releaseYear.year }}</p>
       <p>Genre: {{ movie.genre }}</p>
       <p>Run Time: {{ movie.runTime }}</p>
       <button (click)="toggleFavorite(movie)" type="button">{{ isInFavorites(movie) ? 'Remove' : 'Add' }}</button>

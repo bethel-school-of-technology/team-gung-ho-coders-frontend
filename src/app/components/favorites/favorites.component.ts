@@ -12,7 +12,7 @@ export class FavoritesComponent implements OnInit {
 
   randomMovies: any[] = [];
 
-  externalMovies: any[] = [];
+  externalMovies: any;
   movie: any;
 
   constructor(private movieService: MoviesService) {}
@@ -128,7 +128,7 @@ export class FavoritesComponent implements OnInit {
     if (this.searchTitle.trim() !== '') {
       const apiUrl = `${this.movieService.apiUrl}titles/search/title/${this.searchTitle}`;
 
-      this.movieService.getAllMovies(apiUrl).subscribe(
+      this.movieService.searchMovies(apiUrl).subscribe(
         (response: any) => {
           if (Array.isArray(response)) {
             this.externalMovies = response;
@@ -158,12 +158,13 @@ export class FavoritesComponent implements OnInit {
 
   searchMovies(): void {
     if (this.searchTitle.trim() !== '') {
-      this.movieService.getAllMovies(this.searchTitle).subscribe(
-        (movies: any[]) => {
+      this.movieService.searchMovies(this.searchTitle).subscribe(
+        (movies: any) => {
+          console.log(movies);
           this.externalMovies = movies;
-        },
-        (error) => {
-          console.error('Error searching movies:', error);
+        // },
+        // (error) => {
+        //   console.error('Error searching movies:', error);
         }
       );
     } else {

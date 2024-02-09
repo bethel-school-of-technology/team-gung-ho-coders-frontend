@@ -12,12 +12,12 @@ export class MoviesService {
 
   constructor(private http: HttpClient) {}
 
-  getAllMovies(title: string): Observable<Movies[]> {
+  searchMovies(title: string): Observable<any> {
     const headers = new HttpHeaders()
       .set('X-RapidAPI-Key', '21e64905ecmsh0a63d58546d656cp18033bjsn0175b0cfc09f')
       .set('X-RapidAPI-Host', 'moviesdatabase.p.rapidapi.com');
 
-    return this.http.get<Movies[]>(`${this.apiUrl}titles/search/title/${title}`, { headers });
+    return this.http.get<any>(`${this.apiUrl}titles/search/title/${title}?exact=false&titleType=movie`, { headers });
   }
 
   getMoviesByID(id: string): Observable<Movies> {
@@ -63,5 +63,8 @@ export class MoviesService {
   }
 
   
+  getAllMovies(): Observable<any> {
+    return this.http.get<any>('http://localhost:5205/api/movie');
+  }
  
 }

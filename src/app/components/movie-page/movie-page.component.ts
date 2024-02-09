@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { Movies } from '../../models/movies';
 
@@ -7,16 +7,20 @@ import { Movies } from '../../models/movies';
   templateUrl: './movie-page.component.html',
   styleUrls: ['./movie-page.component.css']
 })
-export class MoviePageComponent {
+export class MoviePageComponent implements OnInit {
 
   movieTitle: string = '';
   movies: Movies[] = [];
 
   constructor(private moviesService: MoviesService) {}
 
-  searchAllMovies() {
-    if (this.movieTitle.trim() !== '') {
-      this.moviesService.getAllMovies(this.movieTitle).subscribe(
+  ngOnInit(): void {
+    this.loadAllMovies();
+  }
+
+  loadAllMovies() {
+
+      this.moviesService.getAllMovies().subscribe(
         (data) => {
           this.movies = data;
         },
@@ -24,7 +28,7 @@ export class MoviePageComponent {
           console.error('Error fetching movies:', error);
         }
       );
-    }
+
   }
 }
   
