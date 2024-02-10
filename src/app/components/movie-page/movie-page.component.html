@@ -6,11 +6,20 @@
   </div>
   <h1>Movies</h1>
 
-  <ul>
-    <li *ngFor="let movie of movies">
-      #{{ movie.movieId }} {{ movie.movieTitle }}
-    </li>
-  </ul>
-</div>
+  <input type="text" [(ngModel)]="searchTitle" placeholder="Enter title to search">
+<button (click)="searchMovies()">Search</button>
+
+<div class="grid">
+  <div *ngIf="externalMovies && externalMovies.results && externalMovies.results.length > 0">
+    <div *ngFor="let movie of externalMovies.results" class="external-movie-card">
+      <img *ngIf="movie.primaryImage" [src]="movie.primaryImage.url" alt="{{ movie.titleText.text }}" width="200">
+      <h3>{{ movie.titleText.text }}</h3>
+      <button (click)="addToDatabase(movie)">Save</button>
+    </div>
+  </div>
+
+
+
+
 
   

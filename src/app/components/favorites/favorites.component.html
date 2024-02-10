@@ -1,5 +1,5 @@
-<input type="text" [(ngModel)]="searchTitle" placeholder="Enter title to search">
-<button (click)="searchMovies()">Search</button>
+<!-- <input type="text" [(ngModel)]="searchTitle" placeholder="Enter title to search">
+<button (click)="searchMovies()">Search</button> -->
 
 <h1>Favorites</h1>
 
@@ -7,38 +7,23 @@
     <div *ngFor="let movie of favorites; let i = index" class="favoritemovie-card">
       <img [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
       <h3>{{ movie.movieTitle}}</h3>
-      <!-- <p>Parental Rating: {{ movie.parentalRating }}</p>
-      <p>Year Filmed: {{ movie.yearFilmed }}</p>
-      <p>Genre: {{ movie.genre }}</p>
-      <p>Run Time: {{ movie.runTime }}</p> -->
       <button (click)="toggleFavorite(movie)" type="button">{{ isInFavorites(movie) ? 'Remove' : 'Add' }}</button>
     </div>
   </div>
 
   <h2>Available Movies</h2>
-<div class="grid">
-  <div *ngIf="externalMovies && externalMovies.results && externalMovies.results.length > 0; else noMoviesFound">
-    <div *ngFor="let movie of externalMovies.results" class="external-movie-card">
-      <img *ngIf="movie.primaryImage" [src]="movie.primaryImage.url" alt="{{ movie.titleText.text }}" width="200">
-      <h3>{{ movie.titleText.text }}</h3>
-      <p>Parental Rating: {{ movie.parentalRating }}</p>
-      <p>Year Filmed: {{ movie.releaseYear.year }}</p>
-      <p>Genre: {{ movie.genre }}</p>
-      <p>Run Time: {{ movie.runTime }}</p>
-      <button (click)="toggleFavorite(movie)" type="button">{{ isInFavorites(movie) ? 'Remove' : 'Add' }}</button>
+
+  <div class="grid">
+    <div *ngIf="randomMovies && randomMovies.results && randomMovies.results.length > 0">
+      <div *ngFor="let movie of randomMovies.results" class="external-movie-card">
+        <img *ngIf="movie.primaryImage" [src]="movie.primaryImage.url" alt="{{ movie.titleText.text }}" width="200">
+        <h3>{{ movie.titleText.text }}</h3>
+        
+      </div>
     </div>
+    <ng-template *ngIf="!(randomMovies && randomMovies.results && randomMovies.results.length > 0)" #noMoviesFound>
+      <p>No movies found.</p>
+    </ng-template>
   </div>
-  <ng-template #noMoviesFound>
-    <p>No movies found.</p>
-  </ng-template>
-</div>
 
-<!-- <div class="external">
-  <div *ngFor="let movie of externalMovies" class="external-movie-card">
-    <img [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
-    <h3>{{ movie.movieTitle }}</h3>
-    <button (click)="toggleFavorite(movie)" type="button">{{ isInFavorites(movie) ? 'Remove' : 'Add' }}</button>
-  </div> -->
-
-  
 

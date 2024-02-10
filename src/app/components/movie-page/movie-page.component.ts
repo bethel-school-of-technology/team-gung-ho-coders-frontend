@@ -9,26 +9,64 @@ import { Movies } from '../../models/movies';
 })
 export class MoviePageComponent implements OnInit {
 
+  searchTitle: string = '';
+
+  externalMovies: any;
+
   movieTitle: string = '';
   movies: Movies[] = [];
 
   constructor(private moviesService: MoviesService) {}
 
   ngOnInit(): void {
-    this.loadAllMovies();
+    this.searchMovies();
   }
 
-  loadAllMovies() {
+  // loadAllMovies() {
 
-      this.moviesService.getAllMovies().subscribe(
-        (data) => {
-          this.movies = data;
-        },
-        (error) => {
-          console.error('Error fetching movies:', error);
+  //     this.moviesService.getAllMovies().subscribe(
+  //       (data) => {
+  //         this.movies = data;
+  //       },
+  //       (error) => {
+  //         console.error('Error fetching movies:', error);
+  //       }
+  //     );
+
+  // }
+
+
+  searchMovies(): void {
+    if (this.searchTitle.trim() !== '') {
+      this.moviesService.searchMovies(this.searchTitle).subscribe(
+        (movies: any) => {
+          console.log(movies);
+          this.externalMovies = movies;
+        // },
+        // (error) => {
+        //   console.error('Error searching movies:', error);
         }
       );
-
-  }
-}
+    } else {
+      console.log('Please enter a title to search for movies.');
+    }
   
+
+}
+
+addToDatabase(movie: any) {
+  
+  this.moviesService.addMovieToDatabase(movie).subscribe(
+    (response) => {
+      console.log('Movie added to database:', response);
+      
+    },
+    (error) => {
+      console.error('Error adding movie to database:', error);
+      
+    }
+  );
+
+}
+
+} 

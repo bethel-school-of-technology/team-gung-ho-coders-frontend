@@ -67,4 +67,13 @@ export class MoviesService {
     return this.http.get<any>('http://localhost:5205/api/movie');
   }
  
+  addMovieToDatabase(movie: Movies): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json') 
+      // .set('Authorization', 'Bearer YOUR_ACCESS_TOKEN'); 
+  
+    return this.http.post<any>('http://localhost:5205/api/movie', movie, { headers });
+  }
+  
+
 }
