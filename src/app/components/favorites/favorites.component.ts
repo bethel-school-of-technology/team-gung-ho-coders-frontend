@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { Movies } from '../../models/movies';
 
+
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
@@ -10,7 +11,7 @@ import { Movies } from '../../models/movies';
 export class FavoritesComponent implements OnInit {
   searchTitle: string = '';
 
-  randomMovies: any[] = [];
+  randomMovies: any;
 
   externalMovies: any;
   movie: any;
@@ -97,7 +98,8 @@ export class FavoritesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.loadExternalMovies();
+    this.loadRandomMovies();
+    
   }
 
   toggleFavorite(movie: any): void {
@@ -149,6 +151,7 @@ export class FavoritesComponent implements OnInit {
     this.movieService.getRandomMovies().subscribe(
       (movies: any[]) => {
         this.randomMovies = movies;
+        console.log(this.randomMovies)
       },
       (error) => {
         console.error('Error fetching random movies:', error);
@@ -162,9 +165,6 @@ export class FavoritesComponent implements OnInit {
         (movies: any) => {
           console.log(movies);
           this.externalMovies = movies;
-        // },
-        // (error) => {
-        //   console.error('Error searching movies:', error);
         }
       );
     } else {
