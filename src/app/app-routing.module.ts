@@ -8,6 +8,7 @@ import { MoviePageComponent } from './components/movie-page/movie-page.component
 import { AboutUsComponent } from './components/about-us/about-us.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to home by default
   {path: '', component: HomeComponent},
   { path: 'home', component: HomeComponent },
   {path: 'movies', component: MoviePageComponent},
