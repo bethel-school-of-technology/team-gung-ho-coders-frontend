@@ -1,3 +1,4 @@
+
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -18,3 +19,12 @@
     grid-template-rows: repeat (4, 1fr);
     gap: 10px 
 }
+body{
+    min-height: 100vh;
+    background: #4a4a4d;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
