@@ -1,5 +1,4 @@
-<!-- <input type="text" [(ngModel)]="searchTitle" placeholder="Enter title to search">
-<button (click)="searchMovies()">Search</button> -->
+
 
 <h1>Favorites</h1>
 
@@ -18,12 +17,10 @@
       <div *ngFor="let movie of randomMovies.results" class="external-movie-card">
         <img *ngIf="movie.primaryImage" [src]="movie.primaryImage.url" alt="{{ movie.titleText.text }}" width="200">
         <h3>{{ movie.titleText.text }}</h3>
-        
+        <button (click)="addToDatabase(movie)">Save Movie</button>
+        <button (click)="reviewMovie(movie)">Create Review</button>
       </div>
     </div>
-    <ng-template *ngIf="!(randomMovies && randomMovies.results && randomMovies.results.length > 0)" #noMoviesFound>
-      <p>No movies found.</p>
-    </ng-template>
   </div>
-
+  
 

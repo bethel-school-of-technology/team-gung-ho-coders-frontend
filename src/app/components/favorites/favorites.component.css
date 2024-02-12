@@ -5,11 +5,13 @@
     gap: 10px
 }
 
-.h1{
+h1{
 
     align-content: center;
     align-items: center;
     justify-content: center;
+    font-style: italic;
+
 }
 
 .external {
@@ -17,4 +19,12 @@
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat (4, 1fr);
     gap: 10px 
+}
+
+h2{
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    font-style: italic; 
+
 }

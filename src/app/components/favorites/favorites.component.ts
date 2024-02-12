@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { Movies } from '../../models/movies';
+import { Router } from '@angular/router';
+
 
 
 @Component({
@@ -15,8 +17,9 @@ export class FavoritesComponent implements OnInit {
 
   externalMovies: any;
   movie: any;
+ 
 
-  constructor(private movieService: MoviesService) {}
+  constructor(private movieService: MoviesService, private router: Router ) {}
 
   favorites = [
     {
@@ -170,5 +173,37 @@ export class FavoritesComponent implements OnInit {
     } else {
       console.log('Please enter a title to search for movies.');
     }
+  }
+
+  addToDatabase(movie: any) {
+    const movieToSendToBackend = {
+      movieTitle: movie.originalTitleText,
+      imgUrl: movie.primaryImage.url,
+      
+    };
+  
+    
+    const result = this.movieService.addMovieToDatabase(movieToSendToBackend);
+  
+    
+    if (result !== void 0) {
+      
+      result.subscribe(
+        (response) => {
+          console.log('Movie added to database:', response);
+        },
+        (error) => {
+          console.error('Error adding movie to database:', error);
+        }
+      );
+    } else {
+     
+      console.error('Error adding movie to database:', 'Invalid response from addMovieToDatabase');
+    }
+  }
+  
+  reviewMovie(movie: any): void {
+    const { id, imageUrl, title } = movie;
+    this.router.navigate(['create-review', id], { queryParams: { imageUrl, title } });
   }
 }

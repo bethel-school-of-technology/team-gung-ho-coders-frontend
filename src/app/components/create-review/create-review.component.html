@@ -1,1 +1,27 @@
-<p>create-review works!</p>
+<h2>Create Review</h2>
+<div>
+  <form (submit)="addReviewToDatabase($event)">
+  
+    <div *ngIf="movie.primaryImage">
+      <img [src]="movie.primaryImage.url" alt="Movie Image" width="200" />
+    </div>
+    
+    <div *ngIf="movie.titleText">
+      <h3>{{ movie.titleText.text }}</h3>
+    </div>
+   
+    <div>
+      <label for="reviewTitle">Review Title</label>
+      <input type="text" id="reviewTitle" name="reviewTitle" [(ngModel)]="reviewTitle" placeholder="Enter review title" />
+    </div>
+    
+    <div>
+      <label for="reviewText">Movie Review</label>
+      <textarea id="reviewText" name="reviewText" [(ngModel)]="reviewText" placeholder="Please enter your review here" rows="5" cols="50"></textarea>
+    </div>
+  
+    <div>
+      <button type="submit">Save Review</button>
+    </div>
+  </form>
+</div>
