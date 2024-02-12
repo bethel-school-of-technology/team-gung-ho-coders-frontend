@@ -1,7 +1,7 @@
 
 
-<h1>Favorites</h1>
 
+<h1>Favorites</h1>
 <div class="grid">
     <div *ngFor="let movie of favorites; let i = index" class="favoritemovie-card">
       <img [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
@@ -22,5 +22,4 @@
       </div>
     </div>
   </div>
-  
 
