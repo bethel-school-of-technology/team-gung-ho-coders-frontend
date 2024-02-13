@@ -6,12 +6,19 @@
     gap: 10px
 }
 
-.h1{
+/* .h1{
 
     align-content: center;
     align-items: center;
     justify-content: center;
+} */
+.container {
+    display: flex;
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    height: 100vh; /* Set height to full viewport height */
 }
+
 
 .external {
     display: grid;
@@ -22,7 +29,7 @@
 
 body{
     min-height: 100vh;
-    background: #4a4a4d;
+    background: #f4f4f6;
     background-size: cover;
     font-family: sans-serif;
     height: 100vh;
