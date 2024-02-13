@@ -11,7 +11,7 @@ export class CreateReviewComponent implements OnInit {
   movie: any;
   reviewText: string = '';
   reviewTitle: string = '';
-  rating: number = 1; // Initialize rating to 1
+  rating: number = 1; 
 
   constructor(private movieService: MoviesService, private route: ActivatedRoute) {}
 
@@ -26,14 +26,13 @@ export class CreateReviewComponent implements OnInit {
 
   addReviewToDatabase(event: Event): void {
     event.preventDefault();
-    
+
     const review = {
       movieId: this.movie.id,
-      imgUrl: this.movie.imageUrl || '', 
-      TextBody: this.reviewText, // Adjust property name to TextBody
-      MovieRating: this.rating // Adjust property name to MovieRating
+      imgUrl: this.movie.imageUrl || '',
+      TextBody: this.reviewText
     };
-  
+
     this.movieService.addReviewToDatabase(review).subscribe(
       (response: any) => {
         console.log('Review added to database:', response);
