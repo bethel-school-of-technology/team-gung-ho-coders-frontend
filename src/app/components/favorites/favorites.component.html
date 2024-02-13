@@ -1,13 +1,5 @@
-
-<body>
-<input type="text" [(ngModel)]="searchTitle" placeholder="Enter title to search">
-<button (click)="searchMovies()">Search</button>
-=======
-<!-- <input type="text" [(ngModel)]="searchTitle" placeholder="Enter title to search">
-<button (click)="searchMovies()">Search</button> -->
-
-
 <h1>Favorites</h1>
+<body>
 <div class="grid">
     <div *ngFor="let movie of favorites; let i = index" class="favoritemovie-card">
       <img [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
@@ -34,7 +26,6 @@
   <ng-template #noMoviesFound>
     <p>No movies found.</p>
   </ng-template>
-<!-- </div> -->
 </body>
 <!-- <div class="external">
   <div *ngFor="let movie of externalMovies" class="external-movie-card">
