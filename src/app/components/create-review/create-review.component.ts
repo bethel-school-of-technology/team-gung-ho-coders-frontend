@@ -8,9 +8,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./create-review.component.css']
 })
 export class CreateReviewComponent implements OnInit {
-   movie: any;
-  reviewText: any;
-  reviewTitle: any;
+  movie: any;
+  reviewText: string = '';
+  reviewTitle: string = '';
+  rating: number = 1; // Initialize rating to 1
 
   constructor(private movieService: MoviesService, private route: ActivatedRoute) {}
 
@@ -29,14 +30,16 @@ export class CreateReviewComponent implements OnInit {
     const review = {
       movieId: this.movie.id,
       imgUrl: this.movie.imageUrl || '', 
-      reviewText: this.reviewText
+      TextBody: this.reviewText, // Adjust property name to TextBody
+      MovieRating: this.rating // Adjust property name to MovieRating
     };
   
     this.movieService.addReviewToDatabase(review).subscribe(
       (response: any) => {
         console.log('Review added to database:', response);
         this.reviewText = '';
-        
+        this.reviewTitle = '';
+        this.rating = 1; // Reset rating to 1 after submission
       },
       (error: any) => {
         console.error('Error adding review to database:', error);
@@ -44,6 +47,4 @@ export class CreateReviewComponent implements OnInit {
     );
   }
   
-
-
 }

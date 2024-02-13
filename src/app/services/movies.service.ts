@@ -79,7 +79,7 @@ export class MoviesService {
       .set('X-RapidAPI-Host', 'moviesdatabase.p.rapidapi.com');
   
    
-    return this.http.post<any>('http://localhost:5205/api/add-movie', movie, { headers }).pipe(
+    return this.http.post<any>('http://localhost:5205/api/Movie', movie, { headers }).pipe(
       tap((response: any) => {
         console.log('Movie added to database:', response);
       }),
@@ -90,13 +90,11 @@ export class MoviesService {
     );
   }
  
-  addReviewToDatabase(review: { movieId: any; imgUrl: any; reviewText: string; }): Observable<any> {
+  addReviewToDatabase(review: { movieId: any; imgUrl: any; TextBody: string; MovieRating: any; }): Observable<any> {
     const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('X-RapidAPI-Key', '21e64905ecmsh0a63d58546d656cp18033bjsn0175b0cfc09f')
-      .set('X-RapidAPI-Host', 'moviesdatabase.p.rapidapi.com');
+     
 
-    return this.http.post<any>(`${this.apiUrl}add-review`, review, { headers }).pipe(
+    return this.http.post<any>(`http://localhost:5205/api/MovieReview`, review, { headers }).pipe(
       tap((response: any) => {
         console.log('Review added to database:', response);
       }),

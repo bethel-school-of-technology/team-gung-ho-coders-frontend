@@ -58,30 +58,21 @@ export class MoviePageComponent implements OnInit {
 
 addToDatabase(movie: any) {
   const movieToSendToBackend = {
+    movieId: movie.id,
     movieTitle: movie.originalTitleText,
     imgUrl: movie.primaryImage.url,
-    
   };
 
-  
-  const result = this.moviesService.addMovieToDatabase(movieToSendToBackend);
-
-  
-  if (result !== void 0) {
-    
-    result.subscribe(
-      (response) => {
-        console.log('Movie added to database:', response);
-      },
-      (error) => {
-        console.error('Error adding movie to database:', error);
-      }
-    );
-  } else {
-   
-    console.error('Error adding movie to database:', 'Invalid response from addMovieToDatabase');
-  }
+  this.moviesService.addMovieToDatabase(movieToSendToBackend).subscribe(
+    (response) => {
+      console.log('Movie added to database:', response);
+    },
+    (error) => {
+      console.error('Error adding movie to database:', error);
+    }
+  );
 }
+
 
 reviewMovie(movie: any): void {
   const { id, imageUrl, title } = movie;
