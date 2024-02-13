@@ -1,7 +1,7 @@
 body{
     min-height: 100vh;
     background: url(https://media.discordapp.net/attachments/1202687143567433738/1206780674917408818/url.jpg?ex=65dd4115&is=65cacc15&hm=8c868108b521d9f72e5b98b19dbc4014aa3f45b671822d67ba640cb79782c762&=&format=webp&width=1225&height=556);
-    background-size: 100% auto; /* width and height, can be %, px or whatever. */
+    background-size: 100% auto; 
     font-family: Artifika;
     height: 100vh;
     margin: 0;
@@ -19,6 +19,6 @@ body{
     border-radius: 20px;
     padding: 10px 20px;
     margin-bottom: 10px;
-    max-width: 250px; /* Adjust width as needed */
-    text-align: center; /* Align text to the right */
+    max-width: 250px; 
+    text-align: center; 
 }
