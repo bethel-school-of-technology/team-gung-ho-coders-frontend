@@ -176,10 +176,11 @@ export class FavoritesComponent implements OnInit {
   }
 
   addToDatabase(movie: any) {
+    
     const movieToSendToBackend = {
-      movieId: movie.movieId,
-      movieTitle: movie.movieTitle,
-      // Add other movie properties as needed
+      ExternalmovieId: movie.id, 
+      MovieTitle: movie.originalTitleText.text, 
+    
     };
   
     const result = this.movieService.addMovieToDatabase(movieToSendToBackend);
@@ -197,7 +198,6 @@ export class FavoritesComponent implements OnInit {
       console.error('Error adding movie to database:', 'Invalid response from addMovieToDatabase');
     }
   }
-  
   
 
 

@@ -30,7 +30,8 @@ export class CreateReviewComponent implements OnInit {
     const review = {
       movieId: this.movie.id,
       imgUrl: this.movie.imageUrl || '',
-      TextBody: this.reviewText
+      TextBody: this.reviewText,
+      MovieRating: this.rating
     };
 
     this.movieService.addReviewToDatabase(review).subscribe(
@@ -38,7 +39,7 @@ export class CreateReviewComponent implements OnInit {
         console.log('Review added to database:', response);
         this.reviewText = '';
         this.reviewTitle = '';
-        this.rating = 1; // Reset rating to 1 after submission
+        this.rating = 1; 
       },
       (error: any) => {
         console.error('Error adding review to database:', error);

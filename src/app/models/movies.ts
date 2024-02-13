@@ -1,11 +1,11 @@
 export class Movies {
-    MovieId?: string;
-    MovieTitle?: string;
+    movieId?: string;
+    movieTitle?: string;
     // imgUrl: any;
   
-    constructor(MovieId?: string, MovieTitle?: string, imgUrl?: any) {
-      this.MovieId = MovieId;
-      this.MovieTitle = MovieTitle;
+    constructor(movieId?: string, movieTitle?: string, imgUrl?: any) {
+      this.movieId = movieId;
+      this.movieTitle = movieTitle;
       // this.imgUrl = imgUrl;
     }
   }

@@ -91,10 +91,10 @@ export class MoviesService {
   }
  
   addReviewToDatabase(review: { movieId: any; imgUrl: any; TextBody: string; MovieRating: any; }): Observable<any> {
-    const headers = new HttpHeaders()
+    
      
 
-    return this.http.post<any>(`http://localhost:5205/api/MovieReview`, review, { headers }).pipe(
+    return this.http.post<any>(`http://localhost:5205/api/MovieReview`, review, ).pipe(
       tap((response: any) => {
         console.log('Review added to database:', response);
       }),
@@ -105,14 +105,6 @@ export class MoviesService {
     );
   }
 
-
-  // addReviewToDatabase(movie: Movies): Observable<any> {
-  //   const headers = new HttpHeaders()
-  //     .set('Content-Type', 'application/json')
-  //     // .set('Authorization', 'Bearer YOUR_ACCESS_TOKEN');
-
-  //   return this.http.post<any>('http://localhost:5205/api/movie', movie, { headers });
-  // }
 
 
 }
