@@ -25,25 +25,25 @@ export class CreateReviewComponent implements OnInit {
 
   addReviewToDatabase(event: Event): void {
     event.preventDefault();
-    
+
     const review = {
       movieId: this.movie.id,
-      imgUrl: this.movie.imageUrl || '', 
-      reviewText: this.reviewText
+      imgUrl: this.movie.imageUrl || '',
+      TextBody: this.reviewText
     };
-  
+
     this.movieService.addReviewToDatabase(review).subscribe(
       (response: any) => {
         console.log('Review added to database:', response);
         this.reviewText = '';
-        
+
       },
       (error: any) => {
         console.error('Error adding review to database:', error);
       }
     );
   }
-  
+
 
 
 }
