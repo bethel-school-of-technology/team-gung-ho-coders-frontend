@@ -9,6 +9,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to home by default
   {path: '', component: HomeComponent},
   { path: 'home', component: HomeComponent },
   {path: 'movies', component: MoviePageComponent},

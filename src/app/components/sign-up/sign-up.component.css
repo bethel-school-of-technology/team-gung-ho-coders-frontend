@@ -1,4 +1,25 @@
+body{
+    min-height: 95vh;
+    background: #000408;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 95vh;
+    margin: 0;
+    padding: 0;
+    background: url(https://wallpapercave.com/wp/wp1945939.jpg);
+  }
 form {
+    width: 330px;
+    height: 450px;
+    border-radius: 20px;
+    background: #070707;
+    color: #b5abab;
+    top: 60%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+    padding: 60px 30px;
     font-family:sans-serif;
     text-align: center;
 }
@@ -6,7 +27,6 @@ button {
     background-color: red;
     color:white;
     padding: 10px;
-    font-weight: bold;
     border-radius: 5px;
     border:1px solid red;
     width: 200px;
@@ -15,3 +35,13 @@ input {
     font-size:14pt;
     width: 190px;
 }
+.SignUp-box .icon{
+    width: 80px;
+    height: 70px;
+    border: 50%;
+    position: absolute;
+    top: 5px;
+    left: calc(50% - 50px);
+  }
+
+  

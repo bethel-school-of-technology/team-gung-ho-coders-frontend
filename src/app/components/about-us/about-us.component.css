@@ -29,4 +29,15 @@
   h1 {
     text-align: center;
   }
+
+  body{
+    min-height: 100vh;
+    background: #000408;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 120vh;
+    margin: 0;
+    padding: 0;
+    background: url(https://motionarray.imgix.net/preview-17534lmqnRwPWLQ_0004.jpg);
+  }
   

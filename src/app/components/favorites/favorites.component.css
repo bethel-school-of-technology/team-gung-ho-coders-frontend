@@ -1,18 +1,31 @@
 
-
 .grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(4, 1fr); /* Typo: Removed the space after repeat */
-    gap: 10px;
+    grid-template-rows: repeat (4, 1fr);
+    gap: 10px
+
 }
 
-h1 {
-    align-content: center; 
-    align-items: center; 
-    justify-content: center; 
-    font-style: italic;
+h1{
+    text-align: center;
+    font-family: "Luckiest Guy"; font-size: 550x; font-style: normal; font-variant: normal; font-weight: 900; line-height: 49px;
 }
+h2{
+    text-align: center;
+    font-family: "Luckiest Guy"; font-size: 550x; font-style: normal; font-variant: normal; font-weight: 900; line-height: 49px;
+}
+
+
+  
+.container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+}
+
+
 
 .external {
     display: grid;
@@ -21,16 +34,33 @@ h1 {
     gap: 10px;
 }
 
-h2 {
-    align-content: center; 
-    align-items: center; 
-    justify-content: center; 
-    font-style: italic;
-}
-
-body {
-    background: #4a4a4d; 
-    background-size: 100% auto;
-    margin: 0; 
-    padding: 0; 
-}
+body{
+    min-height: 100vh;
+    background: #fffefe;
+    background-size: cover;
+    font-family: sans-serif;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  .grid {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to next line */
+    justify-content: center; /* Center the items horizontally */
+  }
+  
+  .external-movie-card {
+    margin: 10px; /* Add some space between the cards */
+    text-align: center; /* Center text and image horizontally */
+  }
+  
+  .external-movie-card img {
+    max-width: 200px; /* Limit the width of the image */
+  }
+  
+  .external-movie-card h3 {
+    margin-top: 10px; /* Add some space between the image and title */
+  }
+  
+  /* Add any additional styling here */
+  
