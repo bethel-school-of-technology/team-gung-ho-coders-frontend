@@ -1,0 +1,26 @@
+.rating-stars {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+  }
+  
+  .rating-stars > label {
+    display: inline-block;
+    padding: 0 1px;
+    color: #ccc;
+  }
+  
+  .rating-stars > input[type="radio"] {
+    display: none;
+  }
+  
+  .rating-stars > input[type="radio"]:checked ~ label {
+    color: gold;
+  }
+
+  .rating-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .rating-container label {
+    margin-right: 10px;}
