@@ -90,7 +90,7 @@ export class MoviesService {
     );
   }
  
-  addReviewToDatabase(review: { movieId: any; imgUrl: any; TextBody: string; MovieRating: any; }): Observable<any> {
+  addReviewToDatabase(review: { movieId: any; TextBody: string; MovieRating: any; }): Observable<any> {
     
      
 

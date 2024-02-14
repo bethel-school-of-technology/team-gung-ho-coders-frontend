@@ -29,7 +29,7 @@ export class CreateReviewComponent implements OnInit {
 
     const review = {
       movieId: this.movie.id,
-      imgUrl: this.movie.imageUrl || '',
+      // imgUrl: this.movie.imageUrl || '',
       TextBody: this.reviewText,
       MovieRating: this.rating
     };
