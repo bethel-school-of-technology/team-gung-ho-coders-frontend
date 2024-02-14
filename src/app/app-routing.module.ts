@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { MoviePageComponent } from './components/movie-page/movie-page.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
+import { CreateReviewComponent } from './components/create-review/create-review.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to home by default
@@ -15,7 +16,9 @@ const routes: Routes = [
   { path: 'favorites', component: FavoritesComponent },
   { path: 'signin', component: SignInComponent },
   { path: 'about-us', component: AboutUsComponent },
-  { path: "signup", component: SignUpComponent },
+  { path: 'signup', component: SignUpComponent },
+  {path: 'create-review', component: CreateReviewComponent},
+  { path: 'create-review/:id', component: CreateReviewComponent }
 ];
 
 @NgModule({

@@ -35,3 +35,11 @@
   align-items: center;
   height: 100vh; /* Adjust as needed */
 }
+
+
+h1{
+  align-content: center;
+    align-items: center;
+    justify-content: center;
+    font-style: italic; 
+}

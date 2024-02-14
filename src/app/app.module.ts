@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, createComponent } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { MoviePageComponent } from './components/movie-page/movie-page.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CreateReviewComponent } from './components/create-review/create-review.component';
 
 
 @NgModule({
@@ -23,15 +24,17 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     NavbarComponent,
     HomeComponent,
     AboutUsComponent,
-    MoviePageComponent
+    MoviePageComponent,
+    CreateReviewComponent
   ],
   imports: [
+
     FormsModule,
     HttpClientModule,
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    FormsModule
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

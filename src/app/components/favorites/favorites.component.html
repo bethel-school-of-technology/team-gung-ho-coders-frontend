@@ -1,3 +1,6 @@
+
+
+
 <h1>Favorites</h1>
 <body>
 <div class="grid">
@@ -15,28 +18,9 @@
       <div *ngFor="let movie of randomMovies.results" class="external-movie-card">
         <img *ngIf="movie.primaryImage" [src]="movie.primaryImage.url" alt="{{ movie.titleText.text }}" width="200">
         <h3>{{ movie.titleText.text }}</h3>
-        
+        <button (click)="addToDatabase(movie)">Save Movie</button>
+        <button (click)="reviewMovie(movie)">Create Review</button>
       </div>
     </div>
-    <ng-template *ngIf="!(randomMovies && randomMovies.results && randomMovies.results.length > 0)" #noMoviesFound>
-      <p>No movies found.</p>
-    </ng-template>
   </div>
-
-  <ng-template #noMoviesFound>
-    <p>No movies found.</p>
-  </ng-template>
-</body>
-<!-- <div class="external">
-  <div *ngFor="let movie of externalMovies" class="external-movie-card">
-    <img [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
-    <h3>{{ movie.movieTitle }}</h3>
-    <button (click)="toggleFavorite(movie)" type="button">{{ isInFavorites(movie) ? 'Remove' : 'Add' }}</button>
-  </div> -->
-
-
-
-=======
-
-
 
