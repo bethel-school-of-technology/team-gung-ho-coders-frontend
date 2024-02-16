@@ -8,10 +8,10 @@ import { tap } from 'rxjs';
 })
 export class UserService {
   private _isloggedin=false;
-  private _userName="";
+  private _userName = "";
   private _user=new User();
 
-  baseURL: string = "http://localhost:5214/api/auth";
+  baseURL: string = "http://localhost:5205/api/auth";
   tokenKey: string = "myPostToken";
 
   constructor(private http: HttpClient) { }
@@ -34,16 +34,13 @@ getUser(userId: string) {
 return this.http.get<User>(this.baseURL+"/"+userId, { headers: reqHeaders });
 }
 
-login(email: string, password: string){
-  let queryParams = new HttpParams();
-  queryParams = queryParams.append('email', email);
-  queryParams = queryParams.append('password', password);
+login(user: User){
 
-  return this.http.get(`${this.baseURL}/login`,  { params: queryParams, responseType: 'text' })
+  return this.http.post(`${this.baseURL}/login`, user)
     .pipe(tap((response: any) => {
       localStorage.setItem('myPostToken', response);
       this._isloggedin=true
-      this._userName=email
+      this._userName=user.username
       console.log({this_userService_login:this})
     }));
 }
