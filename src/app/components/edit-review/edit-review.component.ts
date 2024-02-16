@@ -3,11 +3,11 @@ import { MoviesService } from '../../services/movies.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
-  selector: 'app-create-review',
-  templateUrl: './create-review.component.html',
-  styleUrls: ['./create-review.component.css']
+  selector: 'app-edit-review',
+  templateUrl: './edit-review.component.html',
+  styleUrl: './edit-review.component.css'
 })
-export class CreateReviewComponent implements OnInit {
+export class EditReviewComponent implements OnInit {
   movie: any;
   reviewText: string = '';
   reviewTitle: string = '';
@@ -24,32 +24,25 @@ export class CreateReviewComponent implements OnInit {
     });
   }
 
-  addReviewToDatabase(event: Event): void {
-    event.preventDefault();
-
-    const review = {
+  UpdateReview () {
+    const reviewData = {
       movieId: this.movie.id,
-      imgUrl: this.movie.imageUrl || '',
       TextBody: this.reviewText,
+      Title: this.reviewTitle,
       MovieRating: this.rating
     };
-
-    this.movieService.addReviewToDatabase(review).subscribe(
-      (response: any) => {
-        console.log('Review added to database:', response);
-        this.reviewText = '';
-        this.reviewTitle = '';
-        this.rating = 1; 
+  
+    this.movieService.updateReviewInDatabase(reviewData).subscribe(
+      (response) => {
+        
+        console.log('Review has been updated :', response);
+        
       },
-      (error: any) => {
-        console.error('Error adding review to database:', error);
+      (error) => {
+        
+        console.error('Error updating review:', error);
+        
       }
-    );
+    ); 
   }
-
-  logRating(): void {
-    console.log('Current rating:', this.rating);
-  }
-  
-  
 }

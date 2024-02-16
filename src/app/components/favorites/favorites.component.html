@@ -8,6 +8,7 @@
       <img [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
       <h3>{{ movie.movieTitle}}</h3>
       <button (click)="toggleFavorite(movie)" type="button">{{ isInFavorites(movie) ? 'Remove' : 'Add' }}</button>
+      <button (click)="reviewList(movie)">Reviews List</button>
     </div>
   </div>
 
@@ -20,6 +21,7 @@
         <h3>{{ movie.titleText.text }}</h3>
         <button (click)="addToDatabase(movie)">Save Movie</button>
         <button (click)="reviewMovie(movie)">Create Review</button>
+        <button (click)="reviewList(movie)">Reviews List</button>
       </div>
     </div>
   </div>

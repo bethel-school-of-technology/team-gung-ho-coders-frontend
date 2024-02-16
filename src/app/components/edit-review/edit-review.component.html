@@ -1,6 +1,6 @@
-<h2>Create Review</h2>
+<h2>Edit Review</h2>
 <div>
-  <form (submit)="addReviewToDatabase($event)">
+  <form (submit)="UpdateReview()">
   
     <div *ngIf="movie.primaryImage">
       <img [src]="movie.primaryImage.url" alt="Movie Image" width="200" />
@@ -38,3 +38,4 @@
     </div>
   </form>
 </div>
+

@@ -13,6 +13,8 @@ import { MoviePageComponent } from './components/movie-page/movie-page.component
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
+import { EditReviewComponent } from './components/edit-review/edit-review.component';
+import { ReviewListComponent } from './components/review-list/review-list.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { CreateReviewComponent } from './components/create-review/create-review.
     HomeComponent,
     AboutUsComponent,
     MoviePageComponent,
-    CreateReviewComponent
+    CreateReviewComponent,
+    EditReviewComponent,
+    ReviewListComponent
   ],
   imports: [
 

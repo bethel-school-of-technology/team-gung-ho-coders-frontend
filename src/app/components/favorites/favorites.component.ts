@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 
 
 
+
 @Component({
   selector: 'app-favorites',
   templateUrl: './favorites.component.html',
@@ -17,9 +18,8 @@ export class FavoritesComponent implements OnInit {
 
   externalMovies: any;
   movie: any;
- 
 
-  constructor(private movieService: MoviesService, private router: Router ) {}
+  constructor(private movieService: MoviesService, private router: Router) {}
 
   favorites = [
     {
@@ -102,7 +102,6 @@ export class FavoritesComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadRandomMovies();
-    
   }
 
   toggleFavorite(movie: any): void {
@@ -154,7 +153,7 @@ export class FavoritesComponent implements OnInit {
     this.movieService.getRandomMovies().subscribe(
       (movies: any[]) => {
         this.randomMovies = movies;
-        console.log(this.randomMovies)
+        console.log(this.randomMovies);
       },
       (error) => {
         console.error('Error fetching random movies:', error);
@@ -164,27 +163,25 @@ export class FavoritesComponent implements OnInit {
 
   searchMovies(): void {
     if (this.searchTitle.trim() !== '') {
-      this.movieService.searchMovies(this.searchTitle).subscribe(
-        (movies: any) => {
+      this.movieService
+        .searchMovies(this.searchTitle)
+        .subscribe((movies: any) => {
           console.log(movies);
           this.externalMovies = movies;
-        }
-      );
+        });
     } else {
       console.log('Please enter a title to search for movies.');
     }
   }
 
   addToDatabase(movie: any) {
-    
     const movieToSendToBackend = {
-      ExternalmovieId: movie.id, 
-      MovieTitle: movie.originalTitleText.text, 
-    
+      ExternalmovieId: movie.id,
+      MovieTitle: movie.originalTitleText.text,
     };
-  
+
     const result = this.movieService.addMovieToDatabase(movieToSendToBackend);
-  
+
     if (result !== void 0) {
       result.subscribe(
         (response) => {
@@ -195,14 +192,24 @@ export class FavoritesComponent implements OnInit {
         }
       );
     } else {
-      console.error('Error adding movie to database:', 'Invalid response from addMovieToDatabase');
+      console.error(
+        'Error adding movie to database:',
+        'Invalid response from addMovieToDatabase'
+      );
     }
   }
-  
-
 
   reviewMovie(movie: any): void {
-    const { id, imageUrl, title } = movie;
-    this.router.navigate(['create-review', id], { queryParams: { imageUrl, title } });
+    const { imageUrl, title } = movie;
+    this.router.navigate(['/create-review'], {
+      queryParams: { imgURL: imageUrl, movieTitle: title },
+    });
+  }
+
+  reviewList(movie: any): void {
+    const { imageUrl, title } = movie;
+    this.router.navigate(['/review-list'], {
+      queryParams: { imgURL: imageUrl, movieTitle: title },
+    });
   }
 }

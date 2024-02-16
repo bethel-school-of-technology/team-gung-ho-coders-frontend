@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Movies } from '../models/movies';
 import { tap, catchError } from 'rxjs/operators';
+import { MovieReview } from '../models/movie-review';
 
 
 @Injectable({
@@ -12,6 +13,8 @@ export class MoviesService {
 
 
    apiUrl = 'https://moviesdatabase.p.rapidapi.com/';
+   baseUrl = 'http://localhost:5205/api/movie';
+   reviewUrl = 'http://localhost:5205/api/MovieReview';
 
   constructor(private http: HttpClient) {}
 
@@ -105,6 +108,28 @@ export class MoviesService {
     );
   }
 
+updateReviewInDatabase (review:{ movieId: any; TextBody: string; MovieRating: any; }) {Observable<any>
 
+return this.http.put<any>('http://localhost:5205/api/MovieReview', review, ).pipe(
+  tap((response: any) => {
+    console.log('Review Updated in database:', response);
+  }),
+  catchError((error: any) => {
+    console.error('Error updating review to database:', error);
+    return throwError(error);
+  })
+);
+
+}
+
+deleteReviewFromDatabase (Id: string): Observable<any> {
+
+  return this.http.delete(`${this.reviewUrl}/${Id}`,);
+
+}
+
+getAllReviews(): Observable<MovieReview[]> {
+  return this.http.get<MovieReview[]>(this.reviewUrl);
+}
 
 }

@@ -7,6 +7,8 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { MoviePageComponent } from './components/movie-page/movie-page.component';
 import { AboutUsComponent } from './components/about-us/about-us.component';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
+import { EditReviewComponent } from './components/edit-review/edit-review.component';
+import { ReviewListComponent } from './components/review-list/review-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to home by default
@@ -18,7 +20,11 @@ const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'signup', component: SignUpComponent },
   {path: 'create-review', component: CreateReviewComponent},
-  { path: 'create-review/:id', component: CreateReviewComponent }
+  { path: 'create-review/:id', component: CreateReviewComponent },
+  {path: 'edit-review', component: EditReviewComponent},
+  { path: 'edit-review/:id', component: EditReviewComponent },
+  {path: 'review-list', component: ReviewListComponent}
+
 ];
 
 @NgModule({
