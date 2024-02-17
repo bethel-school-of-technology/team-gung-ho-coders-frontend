@@ -11,7 +11,7 @@ import { EditReviewComponent } from './components/edit-review/edit-review.compon
 import { ReviewListComponent } from './components/review-list/review-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, // Redirect to home by default
+  { path: '', redirectTo: '/home', pathMatch: 'full' }, 
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'movies', component: MoviePageComponent },
@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'about-us', component: AboutUsComponent },
   { path: 'signup', component: SignUpComponent },
   { path: 'create-review', component: CreateReviewComponent },
-  { path: 'create-review/:id', component: CreateReviewComponent }, // Define before the route without the id parameter
+  { path: 'create-review/:id', component: CreateReviewComponent }, 
   { path: 'edit-review', component: EditReviewComponent },
   { path: 'edit-review/:id', component: EditReviewComponent },
   { path: 'review-list', component: ReviewListComponent }
