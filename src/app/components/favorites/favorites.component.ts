@@ -175,12 +175,9 @@ export class FavoritesComponent implements OnInit {
   }
 
   addToDatabase(movie: any) {
-    const movieToSendToBackend = {
-      ExternalmovieId: movie.id,
-      MovieTitle: movie.originalTitleText.text,
-    };
 
-    const result = this.movieService.addMovieToDatabase(movieToSendToBackend);
+
+    const result = this.movieService.addMovieToDatabase(movie);
 
     if (result !== void 0) {
       result.subscribe(
