@@ -3,11 +3,11 @@
 <form (ngSubmit)="signUp()">
     <img class="icon" src="https://pbs.twimg.com/profile_images/1611299295449473025/ilqO3aFZ_400x400.jpg" alt="Logo">
     <h1>REGISTER</h1>
-    <input placeholder="Enter Name" type="text" name="name" ><br><br>
+    <!-- <input placeholder="Enter Name" type="text" name="name" ><br><br> -->
     
-    <input placeholder="Enter Email" type="text" name="email" ><br><br>
+    <input placeholder="Enter Username" [(ngModel)]="newUser.username" type="text" name="username" ><br><br>
     
-    <input placeholder="Enter Password" type="text" name="password" ><br><br>
+    <input placeholder="Enter Password" [(ngModel)]="newUser.password" ttype="text" name="password" ><br><br>
     
     <button>
       Sign Up
