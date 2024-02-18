@@ -13,7 +13,7 @@ export class CreateReviewComponent implements OnInit {
   movie: any;
   reviewText: string = '';
   reviewTitle: string = '';
-  rating: number = 1; 
+  rating: number = 1;
   searchTitle: string = '';
   searchResults: any[] = [];
   externalMovies: any[] = [];
@@ -25,7 +25,7 @@ export class CreateReviewComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(params => {
       const movieId = params['id'];
-      
+
       this.movieService.getMoviesByID(movieId).subscribe(
         (data: any) => {
           this.movie = data;
@@ -37,7 +37,7 @@ export class CreateReviewComponent implements OnInit {
       );
     });
   }
-  
+
 
   addReviewToDatabase(event: Event): void {
     event.preventDefault();
@@ -54,7 +54,7 @@ export class CreateReviewComponent implements OnInit {
         console.log('Review added to database:', response);
         this.reviewText = '';
         this.reviewTitle = '';
-        this.rating = 1; 
+        this.rating = 1;
       },
       (error: any) => {
         console.error('Error adding review to database:', error);
@@ -65,19 +65,19 @@ export class CreateReviewComponent implements OnInit {
   logRating(): void {
     console.log('Current rating:', this.rating);
   }
-  
+
   setSearchTitle(title: string): void {
     this.searchTitle = title;
   }
 
 
-  
+
   reviewMovie(movie: any): void {
-    const { id, imageUrl, titleText } = movie; 
+    const { id, imageUrl, titleText } = movie;
     this.router.navigate(['create-review', id], { queryParams: { imageUrl, title: titleText.text } });
   }
-  
- 
+
+
   addToDatabase(movie: any) {
     
     const movieToSendToBackend = {
@@ -103,9 +103,9 @@ export class CreateReviewComponent implements OnInit {
         (response: any) => {
           console.log(response);
           if (response && response.results && Array.isArray(response.results)) {
-            this.searchResults = response.results; 
+            this.searchResults = response.results;
           } else {
-            this.searchResults = []; 
+            this.searchResults = [];
           }
         },
         (error) => {

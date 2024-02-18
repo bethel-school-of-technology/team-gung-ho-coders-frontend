@@ -18,19 +18,19 @@ export class MoviePageComponent implements OnInit {
   constructor(private moviesService: MoviesService, private router: Router) {}
 
   ngOnInit(): void {
-    
+
     this.searchMovies();
   }
 
-  
+
   setSearchTitle(title: string): void {
     this.searchTitle = title;
   }
 
   searchMovies(): void {
-    
+
     if (this.searchTitle.trim() !== '') {
-      
+
       this.moviesService.searchMovies(this.searchTitle).subscribe(
         (movies: any) => {
           console.log(movies);
@@ -41,7 +41,7 @@ export class MoviePageComponent implements OnInit {
         }
       );
     } else {
-      
+
       console.log('A movie title is required to search.');
     }
   }
@@ -64,9 +64,9 @@ export class MoviePageComponent implements OnInit {
       }
     );
   }
-  
-  
-  
+
+
+
 
   reviewMovie(movie: any): void {
     const { id, imageUrl, title } = movie;
