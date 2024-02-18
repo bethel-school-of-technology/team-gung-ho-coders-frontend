@@ -15,6 +15,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
 import { EditReviewComponent } from './components/edit-review/edit-review.component';
 import { ReviewListComponent } from './components/review-list/review-list.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
+
 
 
 @NgModule({
@@ -29,7 +31,8 @@ import { ReviewListComponent } from './components/review-list/review-list.compon
     MoviePageComponent,
     CreateReviewComponent,
     EditReviewComponent,
-    ReviewListComponent
+    ReviewListComponent,
+    MovieListComponent
   ],
   imports: [
 

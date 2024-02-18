@@ -82,7 +82,7 @@ export class CreateReviewComponent implements OnInit {
     
     const movieToSendToBackend = {
       ExternalMovieId: movie.id,
-      MovieTitle: movie.titleText.text,
+      MovieTitle: movie.orginalTitleText.text,
       
     };
   

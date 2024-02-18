@@ -5,10 +5,10 @@
   <div *ngIf="searchResults && searchResults.length > 0" class="search-results">
     <div *ngFor="let movie of searchResults" class="movie-item">
       <div *ngIf="movie.primaryImage">
-        <img [src]="movie.primaryImage.url" alt="{{ movie.titleText.text }}" width="200">
+        <img [src]="movie.primaryImage.url" alt="{{ movie.originaTitleText.text }}" width="200">
       </div>
       <div *ngIf="movie.titleText">
-        <h3>{{ movie.titleText.text }}</h3>
+        <h3>{{ movie.originalTitleText.text }}</h3>
       </div>
       <button (click)="addToDatabase(movie)">Save Movie</button>
       <button (click)="reviewMovie(movie)">Create Review</button>
@@ -23,7 +23,7 @@
         <img [src]="movie.primaryImage.url" alt="Movie Image" width="200" />
       </div>
       <div *ngIf="movie && movie.titleText">
-        <h3>{{ movie.titleText.text }}</h3>
+        <h3>{{ movie.originalTitleText.text }}</h3>
       </div>
       <div>
         <label for="reviewTitle">Review Title</label>

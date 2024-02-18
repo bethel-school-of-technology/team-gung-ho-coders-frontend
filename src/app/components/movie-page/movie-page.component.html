@@ -4,7 +4,7 @@
       <button>Home</button>
     </a>
   </div>
-  <h1>Movies</h1>
+  <h1>Search Movies</h1>
 
   <br>
 
@@ -17,7 +17,7 @@
     <div *ngFor="let movie of externalMovies.results" class="external-movie-card">
       <img *ngIf="movie.primaryImage" [src]="movie.primaryImage.url" alt="{{ movie.titleText.text }}" width="200">
       <h3>{{ movie.titleText.text }}</h3>
-      <button (click)="addToDatabase(movie)">Save Movie</button>
+      <button (click)="addToDatabase(movie)">Add To Library</button>
       <button (click)="reviewMovie(movie)">Create Review</button>
     </div>
   </div>

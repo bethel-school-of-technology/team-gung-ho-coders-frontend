@@ -12,6 +12,7 @@ export class MoviePageComponent implements OnInit {
 
   searchTitle: string = '';
   externalMovies: any;
+  imgUrl: string = '';
   movies: Movies[] = [];
 
   constructor(private moviesService: MoviesService, private router: Router) {}
@@ -46,11 +47,11 @@ export class MoviePageComponent implements OnInit {
   }
 
   addToDatabase(movie: any) {
-    
+    const imgUrl = movie.primaryImage.url;
     const movieToSendToBackend = {
       ExternalMovieId: movie.id,
-      MovieTitle: movie.titleText.text,
-      
+      MovieTitle: movie.originalTitleText.text,
+      ImgUrl: imgUrl,
     };
   
     

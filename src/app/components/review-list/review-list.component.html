@@ -2,6 +2,8 @@
 
 <div *ngFor="let review of reviewList">
     <h2>Review ID: {{ review.movieReviewId }}</h2>
+    <img *ngIf="review.imgUrl" [src]="review.imgUrl" alt="{{ review.movieTitle }}" width="200">
+    <p>{{ review.movieTitle }}</p>
     <p>{{ review.textBody }}</p>
     <div class="rating-container">
         <span *ngFor="let star of getStars(review.movieRating)" class="star" [class.gold]="star === 1">{{ star === 1 ? '★' : '☆' }}</span>

@@ -60,7 +60,7 @@ export class MoviesService {
     const options = {
       headers: headers,
       params: {
-        limit: '8',
+        limit: '16',
         list: 'top_rated_english_250'
       }
     };
@@ -130,6 +130,14 @@ deleteReviewFromDatabase (Id: string): Observable<any> {
 
 getAllReviews(): Observable<MovieReview[]> {
   return this.http.get<MovieReview[]>(this.reviewUrl);
+}
+
+getSavedMovies(): Observable<Movies[]> {
+  return this.http.get<Movies[]>(`http://localhost:5205/api/Movie`);
+}
+
+deleteMovieFromDatabase(id: string): Observable<any> {
+  return this.http.delete(`${this.baseUrl}/${id}`);
 }
 
 }

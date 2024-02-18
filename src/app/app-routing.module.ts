@@ -9,6 +9,7 @@ import { AboutUsComponent } from './components/about-us/about-us.component';
 import { CreateReviewComponent } from './components/create-review/create-review.component';
 import { EditReviewComponent } from './components/edit-review/edit-review.component';
 import { ReviewListComponent } from './components/review-list/review-list.component';
+import { MovieListComponent } from './components/movie-list/movie-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' }, 
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'create-review/:id', component: CreateReviewComponent }, 
   { path: 'edit-review', component: EditReviewComponent },
   { path: 'edit-review/:id', component: EditReviewComponent },
+  { path: 'movie-list', component: MovieListComponent },
   { path: 'review-list', component: ReviewListComponent }
 
 ];

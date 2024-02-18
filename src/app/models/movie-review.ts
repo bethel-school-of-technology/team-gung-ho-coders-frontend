@@ -5,12 +5,12 @@ export class MovieReview {
     movieTitle: string = ''; 
     imgUrl: string = ''; 
   
-    constructor(movieReviewId: number, textBody: string, movieRating: number, movieTitle: string, imgUrl: string) {
+    constructor(movieReviewId: number, textBody: string, movieRating: number, movieTitle: string, ImgUrl: string) {
       this.movieReviewId = movieReviewId;
       this.textBody = textBody;
       this.movieRating = movieRating;
       this.movieTitle = movieTitle;
-      this.imgUrl = imgUrl;
+      this.imgUrl = ImgUrl;
     }
   }
   
