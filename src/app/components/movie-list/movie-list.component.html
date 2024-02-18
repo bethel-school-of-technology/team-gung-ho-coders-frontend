@@ -1,0 +1,14 @@
+<div *ngIf="savedMovies.length > 0">
+  <h2>Saved Movies</h2>
+  <ul>
+    <li *ngFor="let movie of savedMovies">
+      <img *ngIf="movie.imgUrl" [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
+      <p>{{ movie.movieTitle }}</p>
+      <button (click)="deleteMovie(movie.movieId)">Delete</button>
+    </li>
+  </ul>
+</div>
+<div *ngIf="savedMovies.length === 0">
+  <p>No saved movies found.</p>
+</div>
+

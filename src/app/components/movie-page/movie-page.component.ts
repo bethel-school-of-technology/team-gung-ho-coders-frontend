@@ -12,24 +12,25 @@ export class MoviePageComponent implements OnInit {
 
   searchTitle: string = '';
   externalMovies: any;
+  imgUrl: string = '';
   movies: Movies[] = [];
 
   constructor(private moviesService: MoviesService, private router: Router) {}
 
   ngOnInit(): void {
-    
+
     this.searchMovies();
   }
 
-  
+
   setSearchTitle(title: string): void {
     this.searchTitle = title;
   }
 
   searchMovies(): void {
-    
+
     if (this.searchTitle.trim() !== '') {
-      
+
       this.moviesService.searchMovies(this.searchTitle).subscribe(
         (movies: any) => {
           console.log(movies);
@@ -40,17 +41,17 @@ export class MoviePageComponent implements OnInit {
         }
       );
     } else {
-      
+
       console.log('A movie title is required to search.');
     }
   }
 
   addToDatabase(movie: any) {
-    
+    const imgUrl = movie.primaryImage.url;
     const movieToSendToBackend = {
       ExternalMovieId: movie.id,
-      MovieTitle: movie.titleText.text,
-      
+      MovieTitle: movie.originalTitleText.text,
+      ImgUrl: imgUrl,
     };
   
     
@@ -63,9 +64,9 @@ export class MoviePageComponent implements OnInit {
       }
     );
   }
-  
-  
-  
+
+
+
 
   reviewMovie(movie: any): void {
     const { id, imageUrl, title } = movie;

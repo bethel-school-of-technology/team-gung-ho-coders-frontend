@@ -1,25 +1,27 @@
 
 
 
-<h1>Favorites</h1>
-<body>
-<div class="grid">
-    <div *ngFor="let movie of favorites; let i = index" class="favoritemovie-card">
+<!-- <h1>Favorites</h1>
+<body> -->
+<!-- <div class="grid"> -->
+    <!-- <div *ngFor="let movie of favorites; let i = index" class="favoritemovie-card">
       <img [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
-      <h3>{{ movie.movieTitle}}</h3>
-      <button (click)="toggleFavorite(movie)" type="button">{{ isInFavorites(movie) ? 'Remove' : 'Add' }}</button>
-    </div>
-  </div>
+      <h3>{{ movie.movieTitle}}</h3> -->
+      <!-- <button (click)="toggleFavorite(movie)" type="button">{{ isInFavorites(movie) ? 'Remove' : 'Add' }}</button>
+      <button (click)="reviewList(movie)">Reviews List</button> -->
+    <!-- </div>
+  </div> -->
 
-  <h2>Available Movies</h2>
+  <h2>Random Movies</h2>
 
   <div class="grid">
     <div *ngIf="randomMovies && randomMovies.results && randomMovies.results.length > 0">
       <div *ngFor="let movie of randomMovies.results" class="external-movie-card">
-        <img *ngIf="movie.primaryImage" [src]="movie.primaryImage.url" alt="{{ movie.titleText.text }}" width="200">
-        <h3>{{ movie.titleText.text }}</h3>
+        <img *ngIf="movie.primaryImage" [src]="movie.primaryImage.url" alt="{{ movie.originalTitleText.text }}" width="200">
+        <h3>{{ movie.originalTitleText.text }}</h3>
         <button (click)="addToDatabase(movie)">Save Movie</button>
         <button (click)="reviewMovie(movie)">Create Review</button>
+        <button (click)="reviewList(movie)">Reviews List</button>
       </div>
     </div>
   </div>

@@ -1,0 +1,14 @@
+.movie-list {
+    list-style-type: none;
+  }
+  
+  .movie-list li {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 10px; 
+  }
+  
+  .movie-list img {
+    margin-right: 10px; 
+  }
+  

@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Movies } from '../models/movies';
 import { tap, catchError } from 'rxjs/operators';
+import { MovieReview } from '../models/movie-review';
 
 
 @Injectable({
@@ -12,6 +13,8 @@ export class MoviesService {
 
 
    apiUrl = 'https://moviesdatabase.p.rapidapi.com/';
+   baseUrl = 'http://localhost:5205/api/movie';
+   reviewUrl = 'http://localhost:5205/api/MovieReview';
 
   constructor(private http: HttpClient) {}
 
@@ -57,7 +60,7 @@ export class MoviesService {
     const options = {
       headers: headers,
       params: {
-        limit: '8',
+        limit: '16',
         list: 'top_rated_english_250'
       }
     };
@@ -73,13 +76,20 @@ export class MoviesService {
   }
 
   addMovieToDatabase(movie: any): Observable<any> {
+
+    const movieToSendToBackend = {
+      ExternalmovieId: movie.id,
+      MovieTitle: movie.originalTitleText.text,
+      imgUrl: movie.primaryImage ? movie.primaryImage.url : "",
+    };
+
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('X-RapidAPI-Key', '21e64905ecmsh0a63d58546d656cp18033bjsn0175b0cfc09f')
       .set('X-RapidAPI-Host', 'moviesdatabase.p.rapidapi.com');
-  
-   
-    return this.http.post<any>('http://localhost:5205/api/Movie', movie, { headers }).pipe(
+
+
+    return this.http.post<any>('http://localhost:5205/api/Movie', movieToSendToBackend, { headers }).pipe(
       tap((response: any) => {
         console.log('Movie added to database:', response);
       }),
@@ -89,10 +99,10 @@ export class MoviesService {
       })
     );
   }
- 
+
   addReviewToDatabase(review: { movieId: any; TextBody: string; MovieRating: any; }): Observable<any> {
-    
-     
+
+
 
     return this.http.post<any>(`http://localhost:5205/api/MovieReview`, review, ).pipe(
       tap((response: any) => {
@@ -105,6 +115,36 @@ export class MoviesService {
     );
   }
 
+updateReviewInDatabase (review:{ movieId: any; TextBody: string; MovieRating: any; }) {Observable<any>
 
+return this.http.put<any>('http://localhost:5205/api/MovieReview', review, ).pipe(
+  tap((response: any) => {
+    console.log('Review Updated in database:', response);
+  }),
+  catchError((error: any) => {
+    console.error('Error updating review to database:', error);
+    return throwError(error);
+  })
+);
+
+}
+
+deleteReviewFromDatabase (Id: string): Observable<any> {
+
+  return this.http.delete(`${this.reviewUrl}/${Id}`,);
+
+}
+
+getAllReviews(): Observable<MovieReview[]> {
+  return this.http.get<MovieReview[]>(this.reviewUrl);
+}
+
+getSavedMovies(): Observable<Movies[]> {
+  return this.http.get<Movies[]>(`http://localhost:5205/api/Movie`);
+}
+
+deleteMovieFromDatabase(id: string): Observable<any> {
+  return this.http.delete(`${this.baseUrl}/${id}`);
+}
 
 }
