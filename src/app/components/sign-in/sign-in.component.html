@@ -4,16 +4,16 @@
       <img class="icon" src="https://pbs.twimg.com/profile_images/1611299295449473025/ilqO3aFZ_400x400.jpg" alt="Logo">
       <h1>Sign In Here</h1>
     
-    <form>
+    <form (submit)="onSubmit()"  #signinForm="ngForm" novalidate>
       <label for="username">Username</label> <!--USERNAME-->
-      <input type="text" placeholder="Enter Username">
+      <input type="text" name="username" [(ngModel)]="user.username" placeholder="Enter Username">
 
       <label for="password">Password</label> <!--PASSWORD-->
-      <input type="password" placeholder="Enter Password">
+      <input type="password" name="password" [(ngModel)]="user.password" placeholder="Enter Password">
       
-      <form>
+      
       <input type="submit" value="Sign In" />
-      </form>
+      
 
       <a href="#">Forgot your password?</a><br>
       <a href="#">Don't have an account?</a>
