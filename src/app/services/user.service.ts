@@ -36,7 +36,7 @@ return this.http.get<User>(this.baseURL+"/"+userId, { headers: reqHeaders });
 
 login(user: User){
 
-  return this.http.post(`${this.baseURL}/login`, user)
+  return this.http.post(`${this.baseURL}/login`, user, { responseType: 'text' })
     .pipe(tap((response: any) => {
       localStorage.setItem('myPostToken', response);
       this._isloggedin=true
