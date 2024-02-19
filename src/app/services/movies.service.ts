@@ -79,7 +79,7 @@ export class MoviesService {
 
     const movieToSendToBackend = {
       ExternalmovieId: movie.id,
-      MovieTitle: movie.originalTitleText.text,
+      MovieTitle: movie.titleText.text,
       imgUrl: movie.primaryImage ? movie.primaryImage.url : "",
     };
 
