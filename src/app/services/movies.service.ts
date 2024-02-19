@@ -76,19 +76,22 @@ export class MoviesService {
   }
 
   addMovieToDatabase(movie: any): Observable<any> {
-
+    
+    if (!movie || !movie.id || !movie.titleText || !movie.primaryImage || !movie.primaryImage.url) {
+      return throwError('One or more required fields are missing.');
+    }
+  
     const movieToSendToBackend = {
-      ExternalmovieId: movie.id,
+      ExternalMovieId: movie.id,
       MovieTitle: movie.titleText.text,
-      imgUrl: movie.primaryImage ? movie.primaryImage.url : "",
+      ImgUrl: movie.primaryImage.url,
     };
-
+  
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('X-RapidAPI-Key', '21e64905ecmsh0a63d58546d656cp18033bjsn0175b0cfc09f')
       .set('X-RapidAPI-Host', 'moviesdatabase.p.rapidapi.com');
-
-
+  
     return this.http.post<any>('http://localhost:5205/api/Movie', movieToSendToBackend, { headers }).pipe(
       tap((response: any) => {
         console.log('Movie added to database:', response);
@@ -99,6 +102,7 @@ export class MoviesService {
       })
     );
   }
+  
 
   addReviewToDatabase(review: { movieId: any; TextBody: string; MovieRating: any; }): Observable<any> {
 

@@ -103,19 +103,27 @@ export class FavoritesComponent implements OnInit {
   }
 
   addToDatabase(movie: any) {
-    const imgUrl = movie.primaryImage.url; 
-    const movieToSendToBackend = {
-      ExternalMovieId: movie.id,
-      MovieTitle: movie.titleText.text,
-      ImgUrl: imgUrl, 
-    };
+    if (!movie) {
+      console.error('Movie object is missing.');
+      return;
+    }
   
+    const imgUrl = movie.primaryImage ? movie.primaryImage.url : '';
+    const movieToSendToBackend = {
+      id: movie.id,
+      titleText: movie.titleText,
+      primaryImage: {
+        url: imgUrl
+      }
+    };
+    
     this.movieService.addMovieToDatabase(movieToSendToBackend).subscribe(
       (response) => {
         console.log('Movie added to database:', response);
       },
       (error) => {
         console.error('Error adding movie to database:', error);
+        
       }
     );
   }
