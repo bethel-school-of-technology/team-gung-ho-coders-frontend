@@ -12,9 +12,9 @@ export class ReviewListComponent implements OnInit {
   movieTitle: string = '';
   imgURL: string = '';
   reviewList: MovieReview[] = []; 
-  router: any;
+  
 
-  constructor(private movieService: MoviesService) {}
+  constructor(private movieService: MoviesService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadReviews();
@@ -54,12 +54,14 @@ export class ReviewListComponent implements OnInit {
     );
   }
   
-  
-  
   editReview(review: MovieReview): void {
-    
-    this.router.navigate(['/edit-review', review.movieReviewId]);
-  }
+    if (this.router) {
+        this.router.navigate(['/edit-review', review.movieReviewId]);
+    }
+}
+
+  
+
 
   deleteReview(reviewId: number): void {
     const reviewIdString = reviewId.toString(); 
