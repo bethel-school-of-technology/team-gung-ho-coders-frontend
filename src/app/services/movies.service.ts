@@ -119,19 +119,26 @@ export class MoviesService {
     );
   }
 
-updateReviewInDatabase (review:{ movieId: any; TextBody: string; MovieRating: any; }) {Observable<any>
+  updateReviewInDatabase(reviewData: { movieId: number; TextBody: string; Title: string; MovieRating: number }): Observable<any> {
+    
+    if (!reviewData || !reviewData.movieId || !reviewData.TextBody || !reviewData.Title || !reviewData.MovieRating) {
+      return throwError('One or more required fields are missing.');
+    }
+  
+    const url = `http://localhost:5205/api/MovieReview/${reviewData.movieId}`;
+  
+    return this.http.put<any>(url, reviewData, { headers: { 'Content-Type': 'application/json' } }).pipe(
+      tap((response: any) => {
+        console.log('Review updated in database:', response);
+      }),
+      catchError((error: any) => {
+        console.error('Error updating review in database:', error);
+        return throwError(error);
+      })
+    );
+  }
+  
 
-return this.http.put<any>('http://localhost:5205/api/MovieReview', review, ).pipe(
-  tap((response: any) => {
-    console.log('Review Updated in database:', response);
-  }),
-  catchError((error: any) => {
-    console.error('Error updating review to database:', error);
-    return throwError(error);
-  })
-);
-
-}
 
 deleteReviewFromDatabase (Id: string): Observable<any> {
 

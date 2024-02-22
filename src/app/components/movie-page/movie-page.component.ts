@@ -56,7 +56,7 @@ export class MoviePageComponent implements OnInit {
     const imgUrl = movie.primaryImage ? movie.primaryImage.url : '';
     const movieToSendToBackend = {
       id: movie.id,
-      titleText: movie.titleText,
+      titleText: movie.originalTitleText.text,
       primaryImage: {
         url: imgUrl
       }
