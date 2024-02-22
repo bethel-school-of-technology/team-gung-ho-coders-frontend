@@ -12,19 +12,21 @@ export class EditReviewComponent implements OnInit {
   reviewText: string = '';
   reviewTitle: string = '';
   rating: number = 1; 
+  movieReviewId!: number;
 
   constructor(private movieService: MoviesService, private route: ActivatedRoute) {}
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      const movieId = params['id'];
-      const imageUrl = this.route.snapshot.queryParamMap.get('imageUrl');
-      const title = this.route.snapshot.queryParamMap.get('title');
-      this.movie = { id: movieId, imageUrl: imageUrl, title: title };
-    });
-  }
+ ngOnInit(): void {
+  this.route.params.subscribe(params => {
+    const movieId = +params['id'];
+    const imageUrl = this.route.snapshot.queryParamMap.get('imageUrl');
+    const title = this.route.snapshot.queryParamMap.get('title');
+    this.movie = { id: movieId, imageUrl: imageUrl, title: title };
+  });
+}
 
-  UpdateReview () {
+
+  updateReview() {
     const reviewData = {
       movieId: this.movie.id,
       TextBody: this.reviewText,
@@ -34,12 +36,9 @@ export class EditReviewComponent implements OnInit {
   
     this.movieService.updateReviewInDatabase(reviewData).subscribe(
       (response) => {
-        
-        console.log('Review has been updated :', response);
-        
+        console.log('Review has been updated:', response);
       },
       (error) => {
-        
         console.error('Error updating review:', error);
         
       }
