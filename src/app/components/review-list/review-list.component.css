@@ -1,4 +1,5 @@
 .star {
+    font-size: 18px;
     display: inline-block;
     padding: 0 1px;
     color: #ccc;
@@ -6,5 +7,56 @@
 }
 
 .gold {
+    margin: auto;
+    font-size: 20px;
     color: gold;
+    line-height: normal;
 }
+
+h1 {
+    text-align: center;
+    font-size: 34px; 
+    color: rgb(211, 204, 204);
+    margin: auto;
+}
+
+h2 {
+    font-size: 20px;
+    margin: auto; 
+    color: rgb(225, 209, 209);
+}
+
+img {
+    display: block; 
+    margin: 0 auto; 
+    max-width: 100%; 
+}
+
+p {
+    font-size: 15px;
+    line-height: normal;
+    color: rgb(246, 241, 241);
+}
+
+button {
+    padding: 8px 25px;
+    background-color: #d51d3c;
+    border-radius: 8px;
+    color: #e9e1e1;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+body {
+    min-height: 100vh;
+    background: url(https://wallpapercave.com/wp/wnCoprl.jpg);
+    background-size: 100% auto; 
+    font-family: Artifika;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }

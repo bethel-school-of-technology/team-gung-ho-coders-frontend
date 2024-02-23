@@ -6,11 +6,12 @@
   .rating-stars > label {
     display: inline-block;
     padding: 0 1px;
-    color: #ccc;
+    color: #e9e4e4;
   }
   
   .rating-stars > input[type="radio"] {
     display: none;
+    border-style: double;
   }
   
   .rating-stars > input[type="radio"]:checked ~ label {
@@ -23,11 +24,91 @@
   }
   
   .rating-container label {
-    margin-right: 10px;}
+    margin-right: 10px;
+  }
 
     .star {
       display: inline-block;
       padding: 0 1px;
-      color: #ccc;
-      transition: color 0.3s ease; 
+      color: #f7f5f5;
+      transition: color 0.3s ease;
+      font-size: 18px;
   }
+
+h2{
+  text-align: center;
+  font-size: 34px; 
+  color: rgb(237, 228, 228);
+  margin: auto;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url(https://i.pinimg.com/originals/eb/07/ae/eb07ae0a77a3a091304ec8f9a7d06bde.jpg);
+  background-size: 100% auto; 
+  font-family: Artifika;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+form {
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 45px;
+  /* border: 1px solid #2c2a2a; */
+}
+
+label {
+  font-weight: bold;
+  color: #ebe0e0;
+}
+
+input[type="text"],
+textarea {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #8b8787;
+  border-radius: 4px;
+}
+
+.star {
+  font-size: 25px;
+  color: gold;
+  cursor: pointer;
+}
+
+button[type="submit"] {
+  background-color: #ff0008;
+  color: #ebe0e0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #7f66fc;
+}
+
+input[type="text"] {
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+input[type="text"]:focus {
+  border-color: #333;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #f0e7e7;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #1d1c1c;
+  cursor: pointer;
+}
