@@ -119,13 +119,13 @@ export class MoviesService {
     );
   }
 
-  updateReviewInDatabase(reviewData: { movieId: number; TextBody: string; Title: string; MovieRating: number }): Observable<any> {
+  updateReviewInDatabase(reviewData: { movieReviewId: number; textBody: string; title: string; movieRating: number }): Observable<any> {
     
-    if (!reviewData || !reviewData.movieId || !reviewData.TextBody || !reviewData.Title || !reviewData.MovieRating) {
-      return throwError('One or more required fields are missing.');
-    }
+    // if (!reviewData || !reviewData.movieReviewId || !reviewData.textBody || !reviewData.movieRating) {
+    //   return throwError('One or more required fields are missing.');
+    // }
   
-    const url = `http://localhost:5205/api/MovieReview/${reviewData.movieId}`;
+    const url = `http://localhost:5205/api/MovieReview/${reviewData.movieReviewId}`;
   
     return this.http.put<any>(url, reviewData, { headers: { 'Content-Type': 'application/json' } }).pipe(
       tap((response: any) => {
@@ -148,6 +148,10 @@ deleteReviewFromDatabase (Id: string): Observable<any> {
 
 getAllReviews(): Observable<MovieReview[]> {
   return this.http.get<MovieReview[]>(this.reviewUrl);
+}
+
+getReviewById(id: number): Observable<MovieReview> {
+  return this.http.get<MovieReview>(this.reviewUrl + '/' + id);
 }
 
 getSavedMovies(): Observable<Movies[]> {
