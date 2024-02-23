@@ -18,20 +18,26 @@ export class EditReviewComponent implements OnInit {
 
  ngOnInit(): void {
   this.route.params.subscribe(params => {
-    const movieId = +params['id'];
+    this.movieReviewId = +params['id'];
     const imageUrl = this.route.snapshot.queryParamMap.get('imageUrl');
     const title = this.route.snapshot.queryParamMap.get('title');
-    this.movie = { id: movieId, imageUrl: imageUrl, title: title };
+    this.movie = { id: this.movieReviewId, imageUrl: imageUrl, title: title };
+
+    this.movieService.getReviewById(this.movieReviewId).subscribe(response => {
+      this.reviewText = response.textBody;
+      this.rating = response.movieRating;
+    });
+
   });
 }
 
 
   updateReview() {
     const reviewData = {
-      movieId: this.movie.id,
-      TextBody: this.reviewText,
-      Title: this.reviewTitle,
-      MovieRating: this.rating
+      movieReviewId: this.movieReviewId,
+      textBody: this.reviewText,
+      title: this.reviewTitle,
+      movieRating: this.rating
     };
   
     this.movieService.updateReviewInDatabase(reviewData).subscribe(
