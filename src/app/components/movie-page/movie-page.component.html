@@ -1,3 +1,4 @@
+<body>
 <div class="movie-container">
   <div class="home-button">
     <a routerLink="/">
@@ -8,7 +9,7 @@
 
   <br>
 
-  <input type="text" [(ngModel)]="searchTitle" placeholder="Enter title to search" (keydown.enter)="searchMovies()">
+  <input type="text" [(ngModel)]="searchTitle" placeholder="Enter title to search" (keydown.enter)="searchMovies()"><br><br>
 <button (click)="searchMovies()">Search</button>
 
 

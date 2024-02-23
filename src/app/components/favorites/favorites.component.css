@@ -26,8 +26,6 @@ h2{
     height: 100vh; 
 }
 
-
-
 .external {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -36,15 +34,31 @@ h2{
 }
 
 h2 {
-    align-content: center; 
+    /* align-content: center; 
     align-items: center; 
-    justify-content: center; 
-    font-style: italic;
+    justify-content: center; */
+    /* font-style: italic;  */
+    font-size: 24px;
+    color: #333; /* Choose your desired color */
+    text-align: center; /* Center the heading */
 }
 
 body {
-    background: #4a4a4d; 
-    background-size: 100% auto;
-    margin: 0; 
-    padding: 0; 
+    background: lightgray; 
+    background-size: cover;
+    font-family: sans-serif;
+    height: 120vh;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    background-color: #de2843; 
+    color: #f6f2f2; 
+    padding: 10px 16px; 
+    border: 2px silid black; 
+    border-radius: 8px;
+    cursor: pointer; 
+    margin-right: 15px;
 }

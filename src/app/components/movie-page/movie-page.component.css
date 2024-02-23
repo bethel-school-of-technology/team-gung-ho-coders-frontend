@@ -2,18 +2,37 @@
     position: absolute;
     top: 10px;
     left: 10px;
+
   }
   
   .home-button button {
     padding: 8px 16px;
-    background-color: #333;
+    background-color: #525151;
     color: white;
     border: none;
     cursor: pointer;
+    border: none;
+
   }
   
   .home-button button:hover {
     background-color: #555;
+  }
+
+  input[type="text"] {
+    width: 30%;
+    font-size: 22px;
+    border-radius: 5px;
+    border: 1px solid #e8e3e3;
+    padding: 5px;
+  }
+
+  button {
+    background-color: #243dd0;
+    color: #f6f0f0;
+    border-radius: 8px;
+    padding: 10px 26px;
+    cursor: pointer;
   }
 
   .grid {
@@ -21,7 +40,7 @@
     grid-template-columns: repeat(4, 1fr);
     grid-auto-columns: repeat(100px, auto);
     justify-content: center;
-    gap: 10px
+    gap: 20px
 }
 
 @media (max-width: 768px) {
@@ -33,13 +52,46 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Adjust as needed */
+  height: 100vh; 
 }
 
 
 h1{
   align-content: center;
-    align-items: center;
-    justify-content: center;
-    font-style: italic; 
+  align-items: center;
+  justify-content: center;
+  font-style: italic; 
+  color: rgb(20, 21, 21);
+  font-size: 34px; 
+  margin: auto;
+}
+
+body {
+  min-height: 100vh;
+  background-image: url(https://wallpapercave.com/wp/wp2714484.png);
+  background-size: 100% auto; 
+  font-family: Artifika;
+  height: auto;
+  margin: 0;
+  padding: 0;
+}
+
+.external-movie-card {
+  padding: 10px; 
+  text-align: center; 
+}
+
+ .external-movie-card h3 {
+  font-size: 18px;
+  margin-top: 10px;
+}
+
+.external-movie-card button {
+  background-color: #d24662; 
+  color: #fff; 
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  margin-top: 10px;
 }
