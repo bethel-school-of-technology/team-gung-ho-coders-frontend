@@ -44,9 +44,8 @@ h2{
 
 body {
   min-height: 100vh;
-  background-image: url(https://i.pinimg.com/originals/eb/07/ae/eb07ae0a77a3a091304ec8f9a7d06bde.jpg);
+  background-image: url(https://getreelcinemas.com/wp-content/uploads/2015/02/Background-Narrow.jpg);
   background-size: 100% auto; 
-  font-family: Artifika;
   height: 100vh;
   margin: 0;
   padding: 0;
@@ -61,7 +60,10 @@ form {
 
 label {
   font-weight: bold;
-  color: #ebe0e0;
+  font-size: 20px;
+  color: #fcf7f7;
+  margin-right: 10px;
+  margin-bottom: 5px;
 }
 
 input[type="text"],
@@ -81,7 +83,7 @@ textarea {
 
 button[type="submit"] {
   background-color: #ff0008;
-  color: #ebe0e0;
+  color: #fbf8f8;
   border: none;
   padding: 10px 20px;
   border-radius: 4px;
@@ -94,8 +96,8 @@ button[type="submit"]:hover {
 
 input[type="text"] {
   padding: 10px;
-  border: 2px solid #ccc;
-  border-radius: 5px;
+  border: 2px solid #b49292;
+  border-radius: 6px;
   font-size: 16px;
 }
 
@@ -105,10 +107,17 @@ input[type="text"]:focus {
 
 button {
   padding: 10px 20px;
-  background-color: #f0e7e7;
+  background-color: #c8c6cc;
   border: none;
   border-radius: 5px;
   font-size: 16px;
   color: #1d1c1c;
   cursor: pointer;
+  margin: 4px;
+}
+
+h3 {
+  font-size: 25px;
+  line-height: normal;
+  color: rgb(246, 241, 241);
 }

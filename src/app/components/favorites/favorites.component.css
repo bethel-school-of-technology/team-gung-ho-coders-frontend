@@ -34,24 +34,20 @@ h2{
 }
 
 h2 {
-    /* align-content: center; 
-    align-items: center; 
-    justify-content: center; */
-    /* font-style: italic;  */
-    font-size: 24px;
-    color: #333; /* Choose your desired color */
-    text-align: center; /* Center the heading */
+    font-size: 32px;
+    font-style: italic;
+    text-align: center;
+    color: #f0e8e8;
 }
 
 body {
-    background: lightgray; 
-    background-size: cover;
-    font-family: sans-serif;
-    height: 120vh;
     min-height: 100vh;
+    background-image: url(https://th.bing.com/th/id/R.3dc3e811282c52da807886c9391c39d4?rik=fN85oa3vBZZ3uA&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fouzTHgZ.jpg&ehk=sa8UJDju%2fDCAWkKO%2fjg93TL%2fGI7ecYog5TZS0Ca590o%3d&risl=&pid=ImgRaw&r=0);
+    background-size: 100% auto; 
+    height: 100%;
     margin: 0;
     padding: 0;
-}
+  }
 
 button {
     background-color: #de2843; 
@@ -60,5 +56,11 @@ button {
     border: 2px silid black; 
     border-radius: 8px;
     cursor: pointer; 
-    margin-right: 15px;
+    margin: 3px;
 }
+
+h3 {
+    font-size: 18px;
+    line-height: normal;
+    color: rgb(246, 241, 241);
+  }
