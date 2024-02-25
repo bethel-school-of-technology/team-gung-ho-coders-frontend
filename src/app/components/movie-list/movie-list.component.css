@@ -19,10 +19,10 @@
   }
   
   h2 {
-    font-size: 24px;
-    color: #1c1b1b;
-    border-bottom: 2px solid #827f7f;
-    padding-bottom: 10px;
+    font-size: 32px;
+    font-style: italic;
+    text-align: center;
+    color: #f0e8e8;
   }
   
   ul {
@@ -43,7 +43,7 @@
   
   p {
     font-size: 26px;
-    color: #171515;
+    color: #f3efef;
   }
   
   button {
@@ -59,12 +59,12 @@
     background-color: #c0392b;
   }
 
-  body{
-    background-color: lightgray;
-    background-size: cover;
-    font-family: sans-serif;
-    height: 120vh;
+  body {
     min-height: 100vh;
+    background-image: url(https://th.bing.com/th/id/R.3dc3e811282c52da807886c9391c39d4?rik=fN85oa3vBZZ3uA&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fouzTHgZ.jpg&ehk=sa8UJDju%2fDCAWkKO%2fjg93TL%2fGI7ecYog5TZS0Ca590o%3d&risl=&pid=ImgRaw&r=0);
+    background-size: 100% auto; 
+    font-family: Artifika;
+    height: auto;
     margin: 0;
     padding: 0;
   }

@@ -61,14 +61,14 @@ h1{
   align-items: center;
   justify-content: center;
   font-style: italic; 
-  color: rgb(20, 21, 21);
+  color: rgb(77, 52, 219);
   font-size: 34px; 
   margin: auto;
 }
 
 body {
   min-height: 100vh;
-  background-image: url(https://wallpapercave.com/wp/wp2714484.png);
+  background-image: url(https://th.bing.com/th/id/R.3dc3e811282c52da807886c9391c39d4?rik=fN85oa3vBZZ3uA&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fouzTHgZ.jpg&ehk=sa8UJDju%2fDCAWkKO%2fjg93TL%2fGI7ecYog5TZS0Ca590o%3d&risl=&pid=ImgRaw&r=0);
   background-size: 100% auto; 
   font-family: Artifika;
   height: auto;
@@ -94,4 +94,10 @@ body {
   cursor: pointer;
   font-size: 14px;
   margin-top: 10px;
+}
+
+h3 {
+  font-size: 25px;
+  line-height: normal;
+  color: rgb(246, 241, 241);
 }

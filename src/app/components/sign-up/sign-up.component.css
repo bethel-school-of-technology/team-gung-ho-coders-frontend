@@ -24,24 +24,35 @@ form {
     text-align: center;
 }
 button {
-    background-color: red;
-    color:white;
-    padding: 10px;
-    border-radius: 5px;
-    border:1px solid red;
-    width: 200px;
+    border: none;
+    outline: none;
+    height: 45px;
+    background: #3dc272;  /*fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4e8ecd, #3dc272);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4e8ecd, #3dc272); /* Edge, Chrome 26+, Safari 7+ */
+    color: #f0eded;
+    font-size: 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    padding: 12px;
+    width: 250px;
 }
+
 input {
     font-size:14pt;
-    width: 190px;
+    width: 250px;
+    height: 30px;
 }
-.SignUp-box .icon{
+.SignUp-box .icon {
     width: 80px;
     height: 70px;
     border: 50%;
     position: absolute;
     top: 5px;
     left: calc(50% - 50px);
-  }
+}
 
-  
+a[routerLink="/signin"] {
+    color: #dd3a0c; 
+    text-decoration: underline;
+}
