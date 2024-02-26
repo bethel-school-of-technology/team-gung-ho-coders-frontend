@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-review',
   templateUrl: './edit-review.component.html',
-  styleUrl: './edit-review.component.css'
+  styleUrls: ['./edit-review.component.css'] 
 })
 export class EditReviewComponent implements OnInit {
   movie: any;
@@ -14,23 +14,25 @@ export class EditReviewComponent implements OnInit {
   rating: number = 1; 
   movieReviewId!: number;
 
-  constructor(private movieService: MoviesService, private route: ActivatedRoute) {}
+  constructor(
+    private movieService: MoviesService,
+    private route: ActivatedRoute, 
+    private router: Router 
+  ) {}
 
- ngOnInit(): void {
-  this.route.params.subscribe(params => {
-    this.movieReviewId = +params['id'];
-    const imageUrl = this.route.snapshot.queryParamMap.get('imageUrl');
-    const title = this.route.snapshot.queryParamMap.get('title');
-    this.movie = { id: this.movieReviewId, imageUrl: imageUrl, title: title };
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      this.movieReviewId = +params['id'];
+      const imageUrl = this.route.snapshot.queryParamMap.get('imageUrl');
+      const title = this.route.snapshot.queryParamMap.get('title');
+      this.movie = { id: this.movieReviewId, imageUrl: imageUrl, title: title };
 
-    this.movieService.getReviewById(this.movieReviewId).subscribe(response => {
-      this.reviewText = response.textBody;
-      this.rating = response.movieRating;
+      this.movieService.getReviewById(this.movieReviewId).subscribe(response => {
+        this.reviewText = response.textBody;
+        this.rating = response.movieRating;
+      });
     });
-
-  });
-}
-
+  }
 
   updateReview() {
     const reviewData = {
@@ -39,14 +41,18 @@ export class EditReviewComponent implements OnInit {
       title: this.reviewTitle,
       movieRating: this.rating
     };
-  
+
     this.movieService.updateReviewInDatabase(reviewData).subscribe(
       (response) => {
         console.log('Review has been updated:', response);
+        
+        this.router.navigateByUrl('/review-list', { skipLocationChange: true }).then(() => {
+          
+          this.router.navigate(['/review-list']);
+        });
       },
       (error) => {
         console.error('Error updating review:', error);
-        
       }
     ); 
   }
