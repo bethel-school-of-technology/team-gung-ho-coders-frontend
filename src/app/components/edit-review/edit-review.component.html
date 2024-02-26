@@ -1,3 +1,4 @@
+<body>
 <h2>Edit Review</h2>
 <div>
   <form (submit)="updateReview()">
@@ -29,7 +30,7 @@
           <input type="radio" id="rating4" name="rating" value="4" [(ngModel)]="rating"> <label for="rating4" class="star">&#9733;</label>
           <input type="radio" id="rating5" name="rating" value="5" [(ngModel)]="rating"> <label for="rating5" class="star">&#9733;</label>
       </div>
-      Original rating: {{ rating }}
+     <label> Original rating: {{ rating }} </label>
   </div>
   
     
@@ -40,3 +41,4 @@
   </form>
 </div>
 
+</body>
