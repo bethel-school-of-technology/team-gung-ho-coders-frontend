@@ -111,7 +111,7 @@ export class FavoritesComponent implements OnInit {
     const imgUrl = movie.primaryImage ? movie.primaryImage.url : '';
     const movieToSendToBackend = {
       id: movie.id,
-      titleText: movie.titleText,
+      titleText: movie.originalTitleText,
       primaryImage: {
         url: imgUrl
       }
@@ -120,20 +120,22 @@ export class FavoritesComponent implements OnInit {
     this.movieService.addMovieToDatabase(movieToSendToBackend).subscribe(
       (response) => {
         console.log('Movie added to database:', response);
+        
+        this.router.navigate(['/movie-list']);
       },
       (error) => {
-        console.error('Error adding movie to database:', error);
-        
+        console.error('Error adding movie to database:', error);  
       }
     );
   }
   
   
+  
 
   reviewMovie(movie: any): void {
-    const { imageUrl, title } = movie;
+    const { imageUrl, title, id } = movie;
     this.router.navigate(['/create-review'], {
-      queryParams: { imgURL: imageUrl, movieTitle: title },
+      queryParams: { imgURL: imageUrl, movieTitle: title, movieId: id },
     });
   }
 

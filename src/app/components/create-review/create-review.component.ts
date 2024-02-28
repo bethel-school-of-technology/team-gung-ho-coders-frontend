@@ -55,6 +55,9 @@ export class CreateReviewComponent implements OnInit {
         this.reviewText = '';
         this.reviewTitle = '';
         this.rating = 1;
+
+        this.router.navigate(['/review-list']);
+
       },
       (error: any) => {
         console.error('Error adding review to database:', error);

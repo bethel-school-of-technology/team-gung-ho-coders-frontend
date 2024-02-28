@@ -65,13 +65,15 @@ export class MoviePageComponent implements OnInit {
     this.moviesService.addMovieToDatabase(movieToSendToBackend).subscribe(
       (response) => {
         console.log('Movie added to database:', response);
+        
+        this.router.navigate(['/movie-list']);
       },
       (error) => {
-        console.error('Error adding movie to database:', error);
-        
+        console.error('Error adding movie to database:', error);  
       }
     );
   }
+  
   
 
 
