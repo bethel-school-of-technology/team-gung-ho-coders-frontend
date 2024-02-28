@@ -35,7 +35,7 @@
       font-size: 18px;
   }
 
-h2{
+ h2{
   text-align: center;
   font-size: 34px; 
   color: rgb(237, 228, 228);
@@ -55,8 +55,8 @@ form {
   max-width: 450px;
   margin: 0 auto;
   padding: 45px;
-  /* border: 1px solid #2c2a2a; */
-}
+  /* border: 1px solid #2c2a2a;    */
+} 
 
 label {
   font-weight: bold;
@@ -120,4 +120,4 @@ h3 {
   font-size: 25px;
   line-height: normal;
   color: rgb(246, 241, 241);
-}
+ }
