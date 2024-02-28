@@ -12,11 +12,14 @@
     margin-right: 10px; 
   }
 
+
   .container {
     background-color: #f9f9f9;
     padding: 20px;
     margin: 10px;
   }
+
+
   
   h2 {
     font-size: 32px;
@@ -34,11 +37,12 @@
     margin-bottom: 20px;
     /* border: 1px solid #f0eaea; */
     padding: 10px;
+  
   }
   
   img {
     width: 200px;
-    margin-right: 10px;
+    margin-right: 20px;
   }
   
   p {
@@ -68,3 +72,5 @@
     margin: 0;
     padding: 0;
   }
+
+
