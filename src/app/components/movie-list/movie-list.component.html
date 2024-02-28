@@ -5,6 +5,7 @@
     <li *ngFor="let movie of savedMovies">
       <img *ngIf="movie.imgUrl" [src]="movie.imgUrl" alt="{{ movie.movieTitle }}" width="200">
       <p>{{ movie.movieTitle }}</p>
+      <button (click)="reviewMovie(movie)">Create Review</button>
       <button (click)="deleteMovie(movie.movieId)">Delete</button>
     </li>
   </ul>

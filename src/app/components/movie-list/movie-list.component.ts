@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MoviesService } from '../../services/movies.service';
 import { Movies } from '../../models/movies';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
@@ -11,7 +12,7 @@ export class MovieListComponent implements OnInit {
 
   savedMovies: Movies[] = [];
 
-  constructor(private moviesService: MoviesService) { }
+  constructor(private moviesService: MoviesService, private router: Router ) { }
 
   ngOnInit(): void {
     this.loadSavedMovies();
@@ -44,5 +45,12 @@ export class MovieListComponent implements OnInit {
         console.error('Error deleting movie:', error);
       }
     );
+  }
+
+  reviewMovie(movie: any): void {
+    const { imageUrl, title, id } = movie;
+    this.router.navigate(['/create-review'], {
+      queryParams: { imgURL: imageUrl, movieTitle: title, movieId: id },
+    });
   }
 }

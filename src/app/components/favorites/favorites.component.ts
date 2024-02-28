@@ -23,38 +23,9 @@ export class FavoritesComponent implements OnInit {
   constructor(private movieService: MoviesService, private router: Router) {}
 
    
-
-  // removeMovie(index: number): void {
-  //   this.favorites.splice(index, 1);
-  // }
-
   ngOnInit(): void {
     this.loadRandomMovies();
   }
-
-  // toggleFavorite(movie: any): void {
-  //   const index = this.favorites.findIndex(
-  //     (favorite) => favorite.movieTitle === movie.movieTitle
-  //   );
-  //   if (index === -1) {
-  //     this.favorites.push({
-  //       movieTitle: movie.movieTitle,
-  //       imgUrl: movie.imgUrl,
-  //       parentalRating: '',
-  //       yearFilmed: '',
-  //       genre: '',
-  //       runTime: '',
-  //     });
-  //   } else {
-  //     this.favorites.splice(index, 1);
-  //   }
-  // }
-
-  // isInFavorites(movie: any): boolean {
-  //   return this.favorites.some(
-  //     (favorite) => favorite.movieTitle === movie.movieTitle
-  //   );
-  // }
 
   loadExternalMovies(): void {
     if (this.searchTitle.trim() !== '') {
