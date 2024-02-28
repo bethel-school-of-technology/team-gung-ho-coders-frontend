@@ -121,9 +121,6 @@ export class MoviesService {
 
   updateReviewInDatabase(reviewData: { movieReviewId: number; textBody: string; title: string; movieRating: number }): Observable<any> {
     
-    // if (!reviewData || !reviewData.movieReviewId || !reviewData.textBody || !reviewData.movieRating) {
-    //   return throwError('One or more required fields are missing.');
-    // }
   
     const url = `http://localhost:5205/api/MovieReview/${reviewData.movieReviewId}`;
   
