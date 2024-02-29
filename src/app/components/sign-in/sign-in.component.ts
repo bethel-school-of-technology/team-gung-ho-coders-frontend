@@ -27,7 +27,7 @@ export class SignInComponent {
     console.log(this.user);
     this.userService.login(this.user).subscribe((token) => {
       window.alert("User Logged in Successfully");
-      this.router.navigate(['signin']);
+      this.router.navigate(['home']);
   }, error => {
       window.alert("User Login Error");
       console.log('Error: ', error)
