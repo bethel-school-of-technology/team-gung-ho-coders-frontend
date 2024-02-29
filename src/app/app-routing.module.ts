@@ -12,7 +12,7 @@ import { ReviewListComponent } from './components/review-list/review-list.compon
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' }, 
+  { path: '', redirectTo: '/signup', pathMatch: 'full' }, 
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'movies', component: MoviePageComponent },
