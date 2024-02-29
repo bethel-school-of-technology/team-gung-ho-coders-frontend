@@ -83,12 +83,14 @@ export class CreateReviewComponent implements OnInit {
 
   addToDatabase(movie: any) {
     
+    const imgUrl = movie.primaryImage ? movie.primaryImage.url : '';
     const movieToSendToBackend = {
-      ExternalMovieId: movie.id,
-      MovieTitle: movie.titleText.text,
-      
+      id: movie.id,
+      titleText: movie.originalTitleText,
+      primaryImage: {
+        url: imgUrl
+      }
     };
-  
     
     this.movieService.addMovieToDatabase(movieToSendToBackend).subscribe(
       (response) => {
